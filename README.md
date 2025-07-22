@@ -349,12 +349,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Streamlit** for rapid web interface development with native dark theme
 - **LlamaIndex** for document processing excellence
 
-## 📞 Support & Contact
-
-- **Documentation**: [docs.compliancenavigator.ai](https://docs.compliancenavigator.ai)
-- **Issues**: [GitHub Issues](https://github.com/your-username/compliance-navigator/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/compliance-navigator/discussions)
-- **Email**: support@compliancenavigator.ai
 
 ---
 
