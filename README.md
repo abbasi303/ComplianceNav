@@ -19,6 +19,7 @@ ComplianceNavigator is an agentic AI application designed to guide tech entrepre
 ✅ **Natural Language Understanding** - Advanced LLM prompting and analysis  
 ✅ **Automated Compliance Toolkit** - From gap identification to policy drafting  
 ✅ **Continuous Learning** - Monitors regulatory updates and adapts recommendations  
+✅ **Modern Dark UI** - Native Streamlit dark theme for better user experience  
 
 ## 🏗️ Architecture
 
@@ -27,7 +28,7 @@ ComplianceNavigator is an agentic AI application designed to guide tech entrepre
 - **LLM Core**: Google Gemini API for reasoning and generation
 - **Vector Store**: ChromaDB for semantic search of regulatory documents
 - **Document Processing**: LlamaIndex for intelligent text processing
-- **Web Interface**: Streamlit for rapid prototyping and user interaction
+- **Web Interface**: Streamlit with native dark theme
 - **Task Scheduling**: APScheduler for monitoring and background jobs
 - **Database**: SQLite for persistence and state management
 
@@ -50,11 +51,55 @@ User Input → Intake Agent → Scout Agent → Matcher Agent → Planner Agent 
 - Google Gemini API key
 - 2GB+ RAM (for vector embeddings)
 
-### **Installation**
+### **Installation Options**
+
+#### **Option 1: Automated Setup (Recommended)**
+
+**For Unix/Linux/macOS:**
 ```bash
 # Clone the repository
 git clone https://github.com/your-username/compliance-navigator.git
 cd compliance-navigator
+
+# Run automated setup
+chmod +x setup_env.sh
+./setup_env.sh
+```
+
+**For Windows:**
+```cmd
+# Clone the repository
+git clone https://github.com/your-username/compliance-navigator.git
+cd compliance-navigator
+
+# Run automated setup
+setup_env.bat
+```
+
+**For any platform:**
+```bash
+# Clone the repository
+git clone https://github.com/your-username/compliance-navigator.git
+cd compliance-navigator
+
+# Run Python setup
+python setup.py
+```
+
+#### **Option 2: Manual Setup**
+```bash
+# Clone the repository
+git clone https://github.com/your-username/compliance-navigator.git
+cd compliance-navigator
+
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# On Unix/Linux/macOS:
+source venv/bin/activate
+# On Windows:
+venv\Scripts\activate.bat
 
 # Install dependencies
 pip install -r requirements.txt
@@ -78,9 +123,13 @@ STREAMLIT_PORT=8501
 
 #### **Web Interface (Recommended)**
 ```bash
-python main.py web
-# OR simply
-python main.py
+# Activate virtual environment first
+source venv/bin/activate  # Unix/Linux/macOS
+# OR
+venv\Scripts\activate.bat  # Windows
+
+# Start the web application
+python -m streamlit run ui/streamlit_app.py
 ```
 Visit `http://localhost:8501` in your browser.
 
@@ -93,6 +142,21 @@ python main.py cli
 ```bash
 python main.py test
 ```
+
+## 🎨 User Interface
+
+### **Modern Dark Theme**
+- **Native Streamlit Dark Mode** - Clean, professional appearance
+- **Responsive Design** - Works on desktop, tablet, and mobile
+- **Intuitive Navigation** - Easy-to-use tabs and sections
+- **Real-time Updates** - Live progress tracking during analysis
+
+### **Key Interface Features**
+- **Startup Description Input** - Natural language description of your business
+- **Analysis Progress** - Real-time status updates during processing
+- **Results Dashboard** - Comprehensive compliance analysis with multiple views
+- **Export Options** - Download results as JSON, CSV, or text summaries
+- **Settings Panel** - Configure analysis parameters and preferences
 
 ## 💡 Usage Examples
 
@@ -131,7 +195,7 @@ ComplianceNavigator was built following an intensive AI-powered development spri
 - ✅ Multi-agent architecture with LangGraph orchestration
 - ✅ Gemini API integration with structured data extraction
 - ✅ Vector search with ChromaDB for regulatory matching
-- ✅ Comprehensive Streamlit web interface
+- ✅ Comprehensive Streamlit web interface with native dark theme
 - ✅ CLI mode for programmatic access
 - ✅ Monitoring system for regulatory updates
 - ✅ Complete end-to-end workflow testing
@@ -153,6 +217,7 @@ The system has been tested with realistic scenarios including:
 | **Intelligence** | AI-powered gap analysis | Rule-based checklists |
 | **Updates** | Real-time monitoring | Periodic manual updates |
 | **Customization** | Startup-specific recommendations | Generic compliance guides |
+| **UI/UX** | Modern dark theme, responsive design | Often outdated interfaces |
 
 ### **True Agentic Benefits**
 - **Autonomous Planning**: Agents determine their own research strategies
@@ -161,6 +226,31 @@ The system has been tested with realistic scenarios including:
 - **Continuous Monitoring**: Ongoing intelligence without manual intervention
 
 ## 🔧 Development & Customization
+
+### **Project Structure**
+```
+compliant-project/
+├── agents/                 # Multi-agent system components
+│   ├── intake_agent.py     # User input processing
+│   ├── scout_agent.py      # Regulatory research
+│   ├── matcher_agent.py    # Compliance matching
+│   ├── planner_agent.py    # Action planning
+│   └── monitoring_agent.py # Ongoing monitoring
+├── core/                   # Core system components
+│   ├── orchestrator.py     # Agent orchestration
+│   ├── vector_store.py     # Vector database
+│   └── data_models.py      # Data structures
+├── ui/                     # User interface
+│   └── streamlit_app.py    # Main web application
+├── config/                 # Configuration
+│   └── settings.py         # Application settings
+├── integrations/           # External integrations
+│   └── gemini_client.py    # Gemini API client
+├── utils/                  # Utility functions
+├── data/                   # Data storage
+├── results/                # Analysis results
+└── setup files            # Installation scripts
+```
 
 ### **Adding New Regulatory Sources**
 ```python
@@ -256,7 +346,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Google Gemini API** for advanced language understanding
 - **LangGraph** for multi-agent orchestration framework
 - **ChromaDB** for vector search capabilities
-- **Streamlit** for rapid web interface development
+- **Streamlit** for rapid web interface development with native dark theme
 - **LlamaIndex** for document processing excellence
 
 ## 📞 Support & Contact
