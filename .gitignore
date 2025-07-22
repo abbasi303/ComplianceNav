@@ -1,1 +1,58 @@
-.env
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/project files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Log files
+*.log
+
+# Results and output
+results/
+*.csv
+*.json
+*.txt
+
+# Data and cache
+data/cache/
+data/chroma_db/
+data/regulations/
+ui/data/chroma_db/
+*.sqlite3
+*.bin
+
+# Streamlit and temp files
+.streamlit/
+*.tmp
+*.temp
+
+# PDF and other large docs (if not source)
+*.pdf
+
+# Test artifacts
+*.coverage
+htmlcov/
+coverage.xml
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Misc
+setup_env.sh
+setup_env.bat

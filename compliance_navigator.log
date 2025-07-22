@@ -1147,3 +1147,18 @@ target_countries
 2025-07-22 19:04:02 | INFO     | __main__:check_dependencies:51 - All dependencies available
 2025-07-22 19:04:02 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
 2025-07-22 19:04:02 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 19:30:26 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-22 19:30:31 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 19:30:31 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 19:30:33 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 19:31:21 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: regulations
+2025-07-22 19:31:21 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: compliance_cases
+2025-07-22 19:31:21 | INFO     | core.vector_store:__init__:44 - Vector store initialized successfully
+2025-07-22 19:31:22 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 19:31:22 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 19:31:22 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 19:31:22 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 19:31:22 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 19:31:22 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 19:31:22 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 19:31:22 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501

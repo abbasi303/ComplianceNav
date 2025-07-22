@@ -188,10 +188,6 @@ across France, Germany, and Netherlands."
 
 ## 🎯 MVP Demonstration
 
-### **One-Day Sprint Results**
-ComplianceNavigator was built following an intensive AI-powered development sprint:
-
-**✅ Completed in 24 hours:**
 - ✅ Multi-agent architecture with LangGraph orchestration
 - ✅ Gemini API integration with structured data extraction
 - ✅ Vector search with ChromaDB for regulatory matching
@@ -312,30 +308,6 @@ The system can be extended with industry-specific compliance modules:
 - [ ] Integration with business formation platforms
 - [ ] Automated legal document generation
 
-## 🤝 Contributing
-
-We welcome contributions! Please see our contributing guidelines:
-
-1. **Fork the repository**
-2. **Create feature branch**: `git checkout -b feature/amazing-feature`
-3. **Make your changes** with tests
-4. **Submit pull request** with detailed description
-
-### **Development Setup**
-```bash
-# Install development dependencies
-pip install -r requirements.txt
-pip install pytest black flake8
-
-# Run tests
-python -m pytest tests/
-
-# Format code
-black .
-
-# Lint code
-flake8 .
-```
 
 ## 📄 License
 
