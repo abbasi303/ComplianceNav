@@ -1,0 +1,18 @@
+# Streamlit Theme Configuration
+# Dark theme as default
+
+[theme]
+base = "dark"
+primaryColor = "#6366f1"
+backgroundColor = "#0e1117"
+secondaryBackgroundColor = "#262730"
+textColor = "#fafafa"
+
+[server]
+# Optional: Set the app to wide mode by default
+runOnSave = true
+enableCORS = false
+
+[browser]
+# Optional: Gather usage stats
+gatherUsageStats = false 

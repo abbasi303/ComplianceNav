@@ -1,0 +1,1135 @@
+2025-07-20 05:00:36 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 05:00:36 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 05:00:39 | INFO     | integrations.gemini_client:__init__:17 - Gemini client initialized successfully
+2025-07-20 05:01:58 | INFO     | core.vector_store:_get_or_create_collection:59 - Created new collection: regulations
+2025-07-20 05:01:58 | INFO     | core.vector_store:_get_or_create_collection:59 - Created new collection: compliance_cases
+2025-07-20 05:01:58 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 05:01:59 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 05:01:59 | INFO     | agents.scout_agent:__init__:53 - ScoutAgent initialized with 3 data sources
+2025-07-20 05:01:59 | INFO     | agents.matcher_agent:__init__:38 - MatcherAgent initialized
+2025-07-20 05:01:59 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 05:01:59 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 05:01:59 | INFO     | core.orchestrator:__init__:57 - ComplianceOrchestrator initialized
+2025-07-20 05:01:59 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 05:01:59 | INFO     | __main__:main:218 - Running in test mode...
+2025-07-20 05:01:59 | INFO     | __main__:test_workflow:63 - Testing ComplianceNavigator workflow...
+2025-07-20 05:01:59 | INFO     | __main__:test_workflow:75 - Running sample compliance analysis...
+2025-07-20 05:01:59 | INFO     | core.orchestrator:process_compliance_request:100 - Starting compliance workflow workflow_67159
+2025-07-20 05:01:59 | INFO     | core.orchestrator:_intake_node:135 - Workflow workflow_67159: Executing Intake Agent
+2025-07-20 05:01:59 | INFO     | agents.intake_agent:parse_startup_description:41 - IntakeAgent: Processing startup description
+2025-07-20 05:02:02 | ERROR    | integrations.gemini_client:extract_structured_data:148 - Error extracting structured data: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2025-07-20 05:02:02 | ERROR    | agents.intake_agent:parse_startup_description:87 - IntakeAgent: Error parsing startup description: 3 validation errors for StartupInfo
+industry
+  Field required [type=missing, input_value={}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+business_activities
+  Field required [type=missing, input_value={}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+target_countries
+  Field required [type=missing, input_value={}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+2025-07-20 05:02:02 | INFO     | agents.intake_agent:generate_research_queries:106 - IntakeAgent: Generating research queries
+2025-07-20 05:02:11 | INFO     | agents.intake_agent:generate_research_queries:141 - IntakeAgent: Generated 5 research queries
+2025-07-20 05:02:11 | INFO     | core.orchestrator:_intake_node:146 - Intake Agent completed: Industry=Unknown, Queries=5
+2025-07-20 05:02:11 | INFO     | core.orchestrator:_scout_node:157 - Workflow workflow_67159: Executing Scout Agent
+2025-07-20 05:02:11 | INFO     | agents.scout_agent:research_regulations:66 - ScoutAgent: Starting regulatory research with 5 queries
+2025-07-20 05:03:46 | INFO     | agents.scout_agent:research_regulations:92 - ScoutAgent: Found 1 relevant regulatory documents
+2025-07-20 05:04:16 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_598909873e78
+2025-07-20 05:04:16 | INFO     | core.orchestrator:_scout_node:170 - Scout Agent completed: Found 1 regulatory documents
+2025-07-20 05:04:16 | INFO     | core.orchestrator:_matcher_node:181 - Workflow workflow_67159: Executing Matcher Agent
+2025-07-20 05:04:16 | INFO     | agents.matcher_agent:analyze_compliance_gaps:55 - MatcherAgent: Analyzing compliance gaps for Unknown startup
+2025-07-20 05:04:30 | INFO     | agents.matcher_agent:analyze_compliance_gaps:87 - MatcherAgent: Found 2 compliance gaps, risk level: medium
+2025-07-20 05:04:30 | INFO     | core.orchestrator:_matcher_node:194 - Matcher Agent completed: Found 2 gaps, risk level medium
+2025-07-20 05:04:30 | INFO     | core.orchestrator:_planner_node:205 - Workflow workflow_67159: Executing Planner Agent
+2025-07-20 05:04:30 | INFO     | agents.planner_agent:create_compliance_plan:62 - PlannerAgent: Creating compliance plan for Unknown startup
+2025-07-20 05:04:51 | INFO     | agents.planner_agent:create_compliance_plan:92 - PlannerAgent: Created plan with 4 action items, risk level: medium
+2025-07-20 05:04:51 | INFO     | core.orchestrator:_planner_node:218 - Planner Agent completed: Created plan with 4 action items
+2025-07-20 05:04:51 | INFO     | core.orchestrator:_monitoring_node:229 - Workflow workflow_67159: Executing Monitoring Agent
+2025-07-20 05:04:51 | INFO     | agents.monitoring_agent:setup_monitoring:62 - MonitoringAgent: Setting up monitoring for test_user
+2025-07-20 05:04:51 | INFO     | agents.monitoring_agent:setup_monitoring:92 - Monitoring scheduled for test_user with weekly frequency
+2025-07-20 05:04:51 | INFO     | agents.monitoring_agent:start_monitoring:445 - MonitoringAgent: Monitoring scheduler started
+2025-07-20 05:04:51 | INFO     | core.orchestrator:_monitoring_node:246 - Monitoring Agent completed: Set up monitoring for test_user
+2025-07-20 05:04:51 | INFO     | core.orchestrator:process_compliance_request:118 - Compliance workflow workflow_67159 completed successfully
+2025-07-20 05:04:51 | ERROR    | core.orchestrator:process_compliance_request:124 - Workflow workflow_67159 failed: 'AddableValuesDict' object has no attribute 'startup_info'
+2025-07-20 05:04:51 | ERROR    | __main__:test_workflow:87 - ❌ Workflow test failed
+2025-07-20 05:04:51 | ERROR    | __main__:test_workflow:88 - Results: {'workflow_id': 'workflow_67159', 'status': 'failed', 'error': "'AddableValuesDict' object has no attribute 'startup_info'", 'started_at': '2025-07-20T05:01:59.793518', 'completed_at': '2025-07-20T05:04:51.998643'}
+2025-07-20 05:08:18 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 05:08:18 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 05:08:19 | INFO     | integrations.gemini_client:__init__:17 - Gemini client initialized successfully
+2025-07-20 05:08:33 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 05:08:33 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 05:08:33 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 05:08:34 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 05:08:34 | INFO     | agents.scout_agent:__init__:53 - ScoutAgent initialized with 3 data sources
+2025-07-20 05:08:34 | INFO     | agents.matcher_agent:__init__:38 - MatcherAgent initialized
+2025-07-20 05:08:34 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 05:08:34 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 05:08:34 | INFO     | core.orchestrator:__init__:57 - ComplianceOrchestrator initialized
+2025-07-20 05:08:34 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 05:08:34 | INFO     | __main__:main:218 - Running in test mode...
+2025-07-20 05:08:34 | INFO     | __main__:test_workflow:63 - Testing ComplianceNavigator workflow...
+2025-07-20 05:08:34 | INFO     | __main__:test_workflow:75 - Running sample compliance analysis...
+2025-07-20 05:08:34 | INFO     | core.orchestrator:process_compliance_request:100 - Starting compliance workflow workflow_75779
+2025-07-20 05:08:34 | INFO     | core.orchestrator:_intake_node:135 - Workflow workflow_75779: Executing Intake Agent
+2025-07-20 05:08:34 | INFO     | agents.intake_agent:parse_startup_description:41 - IntakeAgent: Processing startup description
+2025-07-20 05:08:36 | WARNING  | integrations.gemini_client:extract_structured_data:165 - Could not extract valid JSON from Gemini response, creating fallback structure
+2025-07-20 05:08:36 | WARNING  | agents.intake_agent:parse_startup_description:81 - IntakeAgent: Empty or invalid data from Gemini, using fallback parsing
+2025-07-20 05:08:36 | INFO     | agents.intake_agent:parse_startup_description:95 - IntakeAgent: Successfully parsed startup info - Industry: healthcare, Countries: ['Germany']
+2025-07-20 05:08:36 | INFO     | agents.intake_agent:generate_research_queries:115 - IntakeAgent: Generating research queries
+2025-07-20 05:08:42 | INFO     | agents.intake_agent:generate_research_queries:150 - IntakeAgent: Generated 5 research queries
+2025-07-20 05:08:42 | INFO     | core.orchestrator:_intake_node:146 - Intake Agent completed: Industry=healthcare, Queries=5
+2025-07-20 05:08:42 | INFO     | core.orchestrator:_scout_node:157 - Workflow workflow_75779: Executing Scout Agent
+2025-07-20 05:08:42 | INFO     | agents.scout_agent:research_regulations:66 - ScoutAgent: Starting regulatory research with 5 queries
+2025-07-20 05:12:45 | INFO     | agents.scout_agent:research_regulations:92 - ScoutAgent: Found 6 relevant regulatory documents
+2025-07-20 05:12:46 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_7efce97037b3
+2025-07-20 05:12:46 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_a2e4c535d479
+2025-07-20 05:12:46 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_431e98d97b13
+2025-07-20 05:12:46 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_9d78a0e43150
+2025-07-20 05:12:47 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_7efce97037b3
+2025-07-20 05:12:47 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_7d9f9e45781a
+2025-07-20 05:12:47 | INFO     | core.orchestrator:_scout_node:170 - Scout Agent completed: Found 6 regulatory documents
+2025-07-20 05:12:47 | INFO     | core.orchestrator:_matcher_node:181 - Workflow workflow_75779: Executing Matcher Agent
+2025-07-20 05:12:47 | INFO     | agents.matcher_agent:analyze_compliance_gaps:55 - MatcherAgent: Analyzing compliance gaps for healthcare startup
+2025-07-20 05:17:14 | INFO     | agents.matcher_agent:analyze_compliance_gaps:87 - MatcherAgent: Found 17 compliance gaps, risk level: critical
+2025-07-20 05:17:14 | INFO     | core.orchestrator:_matcher_node:194 - Matcher Agent completed: Found 17 gaps, risk level critical
+2025-07-20 05:17:14 | INFO     | core.orchestrator:_planner_node:205 - Workflow workflow_75779: Executing Planner Agent
+2025-07-20 05:17:14 | INFO     | agents.planner_agent:create_compliance_plan:62 - PlannerAgent: Creating compliance plan for healthcare startup
+2025-07-20 05:20:45 | INFO     | agents.planner_agent:create_compliance_plan:92 - PlannerAgent: Created plan with 20 action items, risk level: critical
+2025-07-20 05:20:45 | INFO     | core.orchestrator:_planner_node:218 - Planner Agent completed: Created plan with 20 action items
+2025-07-20 05:20:45 | INFO     | core.orchestrator:_monitoring_node:229 - Workflow workflow_75779: Executing Monitoring Agent
+2025-07-20 05:20:45 | INFO     | agents.monitoring_agent:setup_monitoring:62 - MonitoringAgent: Setting up monitoring for test_user
+2025-07-20 05:20:45 | INFO     | agents.monitoring_agent:setup_monitoring:92 - Monitoring scheduled for test_user with weekly frequency
+2025-07-20 05:20:45 | INFO     | agents.monitoring_agent:start_monitoring:445 - MonitoringAgent: Monitoring scheduler started
+2025-07-20 05:20:45 | INFO     | core.orchestrator:_monitoring_node:246 - Monitoring Agent completed: Set up monitoring for test_user
+2025-07-20 05:20:45 | INFO     | core.orchestrator:process_compliance_request:118 - Compliance workflow workflow_75779 completed successfully
+2025-07-20 05:20:45 | ERROR    | __main__:test_workflow:87 - ❌ Workflow test failed
+2025-07-20 05:20:45 | ERROR    | __main__:test_workflow:88 - Results: {'workflow_id': 'workflow_75779', 'status': 'running', 'started_at': '2025-07-20T05:08:34.778850', 'completed_at': None, 'startup_info': {'company_name': None, 'industry': 'healthcare', 'target_countries': ['Germany'], 'business_activities': ['data processing', 'payment processing', 'communication services'], 'data_handling': ['personal data', 'health data', 'financial data'], 'customer_types': ['individuals']}, 'research': {'queries_generated': 5, 'query_types': ['licensing', 'data_protection']}, 'regulatory_research': {'documents_found': 6, 'countries_covered': ['Germany', 'EU'], 'regulation_types': ['data_protection', 'general']}, 'compliance_analysis': {'gaps_found': 17, 'compliant_areas': 3, 'overall_risk_level': 'critical', 'recommendations_summary': 'Executive Summary: Compliance Recommendations for German Market Entry\n\nThis healthcare startup faces significant compliance challenges in the German market, with 11 critical gaps identified across licensing and data protection.  Immediate action is required to mitigate substantial legal and operational risks.  Top priority must be given to securing the necessary licenses under the "Verordnung ü..." and the VVGD (Verordnung über die Verarbeitung vo...) to legally operate within the German healthcare system.  Concurrently, the startup must address critical data protection gaps related to the BDSG, GDPR, and German regulations on processing health data.  Failure to comply with these regulations exposes the company to significant fines, legal action, and reputational damage.\n\nThe second phase of compliance efforts should focus on implementing robust data protection mechanisms. This includes establishing clear data processing agreements, appointing a data protection officer, and ensuring full transparency with users regarding data collection, storage, and processing practices.  Given the sensitive nature of health and financial data being handled, adherence to strict security protocols and data minimization principles is paramount.  A comprehensive review of all data processing activities should be conducted to ensure alignment with German legal requirements.\n\nFinally, ongoing monitoring and adaptation are crucial.  German regulations are subject to change, and continuous vigilance is required to maintain compliance.  Implementing a robust compliance management system with regular audits and updates will be essential for long-term success in the German market.  This proactive approach will minimize future risks and demonstrate the startup’s commitment to data protection and responsible operation within the German healthcare landscape.\n', 'compliance_gaps': [{'title': 'Germany Regulatory Requirement #2 for 0.', 'gap_type': 'licensing', 'severity': 'critical', 'description': 'This startup almost certainly has compliance gaps with the fictional German regulation "Verordnung über die Verarbeitung personenbezogener, Gesundheits- und Finanzdaten durch Dritte im Gesundheitswesen (GDVV)".  Since the regulation is fictional, I can only provide a general analysis based on likely...', 'recommended_actions': ['* **Recommended Actions:** Investigate the specific licensing requirements under the GDVV.  Prepare and submit the necessary application to the relevant German authority.  This may involve demonstrating compliance with data protection principles, security measures, and potentially appointing a data protection officer.', "* **Recommended Actions:** Conduct a thorough data protection impact assessment (DPIA) focusing on the GDVV's requirements. Implement necessary technical and organizational measures to ensure data security and comply with data minimization and purpose limitation principles.  Develop clear and concise privacy notices for data subjects.", '* **Recommended Actions:**  If data transfers are involved, determine the legality of the transfers under the GDVV and GDPR.  Implement appropriate safeguards like Standard Contractual Clauses or Binding Corporate Rules.', '* **Recommended Actions:** Identify and understand the reporting requirements under the GDVV. Establish internal procedures for incident response and reporting.', 'This analysis provides a general overview.  The fictional nature of the GDVV makes it impossible to give precise details.  The startup *must* obtain and carefully review the actual text of the GDVV to understand the specific requirements and ensure full compliance.  Legal counsel specializing in German healthcare data protection law is highly recommended.'], 'country': 'Germany', 'deadline': None, 'estimated_cost': None}, {'title': 'Germany Regulatory Requirement #2 for **Germany', 'gap_type': 'licensing', 'severity': 'critical', 'description': "This startup almost certainly has compliance gaps with the VVGD (Verordnung über die Verarbeitung von Gesundheitsdaten) given its business activity.  Here's a breakdown:\n\n**Gap 1: Data Protection & Security (Critical)**\n\n* **Description:** The VVGD sets stringent requirements for the processing of h...", 'recommended_actions': ['* **Recommended Actions:** Conduct a thorough gap analysis against the VVGD requirements. Implement necessary technical and organizational measures.  Document all processes and procedures.  Appoint a data protection officer if required.', "* **Recommended Actions:** Review the VVGD's requirements for consent and legal basis. Implement procedures for obtaining and documenting valid consent.  Ensure transparency with individuals about their rights.", "* **Recommended Actions:**  Assess whether any data transfers outside of Germany are planned.  If so, ensure compliance with the VVGD's requirements, which may include adequacy decisions, standard contractual clauses, or binding corporate rules.", '* **Recommended Actions:**  Consult with legal counsel specializing in German healthcare data protection to determine if any notifications or authorizations are required.', '* **Recommended Actions:**  Implement appropriate security measures and data protection principles for financial data processing, in line with the GDPR.'], 'country': 'Germany', 'deadline': None, 'estimated_cost': None}, {'title': 'EU Regulatory Requirement #2 for 0.', 'gap_type': 'data_protection', 'severity': 'critical', 'description': 'This startup has potential compliance gaps with the BDSG (and by extension, the GDPR as it relates to health data) given its activities in Germany.  Processing health data, financial data, and personal data of individuals in Germany related to healthcare requires strict adherence to German and EU da...', 'recommended_actions': ['* **Recommended Actions:**', "* **Recommended Actions:**  If data transfers occur, assess the destination country's data protection adequacy. Implement appropriate safeguards for data transfers if necessary.", '* **Recommended Actions:** Review and update data processing agreements to ensure compliance with GDPR requirements.', '* **Recommended Actions:** Implement a data breach response plan, including procedures for notification and communication.', '* **Recommended Actions:** Create and maintain an up-to-date RoPA.'], 'country': 'EU', 'deadline': None, 'estimated_cost': None}, {'title': 'EU Regulatory Requirement #1 for **Germany', 'gap_type': 'data_protection', 'severity': 'critical', 'description': 'This healthcare startup processing personal, health, and financial data of individuals in Germany under the scope of the GDPR has several potential compliance gaps:\n\n**Gap 1: Data Protection - Lawful Basis for Processing**\n\n* **Severity:** Critical\n* **Description:**  Processing health and financial...', 'recommended_actions': ["* **Recommended Actions:**  Conduct a thorough assessment to determine the appropriate lawful basis for processing each data category (health and financial). Document this assessment. If relying on consent, ensure it meets GDPR's requirements for freely given, specific, informed, and unambiguous indication of the data subject's wishes.  Consider alternatives like anonymization or pseudonymization if applicable.", '* **Recommended Actions:** Conduct a thorough risk assessment to identify potential vulnerabilities. Implement appropriate technical and organizational measures based on the risk assessment.  Document these measures and regularly review and update them. Consider ISO 27001 certification.', '* **Recommended Actions:**  Establish clear procedures for handling data subject requests.  Train staff on these procedures.  Implement systems to facilitate the exercise of these rights.', '* **Recommended Actions:** Map all data flows and identify any international transfers. Implement appropriate safeguards for any international transfers.', '* **Recommended Actions:**  Assess whether a DPO is required based on the criteria set out in the GDPR.  If required, appoint a DPO.'], 'country': 'EU', 'deadline': None, 'estimated_cost': None}, {'title': 'EU Regulatory Requirement #2 for **Germany', 'gap_type': 'data_protection', 'severity': 'critical', 'description': "This startup almost certainly has compliance gaps with the German regulation on processing health data (Verordnung über die Verarbeitung von Gesundheitsdaten - VGD), which likely draws heavily from the EU's General Data Protection Regulation (GDPR) given the context.  Even if the fictional VGD didn'...", 'recommended_actions': ['* **Recommended Actions:**', '* **Recommended Actions:**  Clearly define the purposes of processing both health and financial data and identify the appropriate legal basis for each purpose. Document this justification. Consult with legal counsel specializing in German and EU data protection law.', '* **Recommended Actions:**  Map all data flows and identify any international transfers. Implement appropriate safeguards for any such transfers.', '* **Recommended Actions:** Determine if registration is required based on the specific processing activities.', '* **Recommended Actions:** Obtain and thoroughly review the VGD.  Consult with legal counsel specializing in German healthcare law to ensure full compliance.'], 'country': 'EU', 'deadline': None, 'estimated_cost': None}, {'title': 'Germany Regulatory Requirement #1 for **Germany', 'gap_type': 'licensing', 'severity': 'critical', 'description': "This healthcare startup processing payments in Germany, handling sensitive personal, health, and financial data, faces several potential compliance gaps under the GDPR and other German regulations.  A detailed analysis is required to pinpoint the exact requirements, but here's a breakdown of likely ...", 'recommended_actions': ['* **Recommended Actions:** Conduct a thorough data protection impact assessment (DPIA). Implement appropriate technical and organizational measures to meet GDPR requirements.  Develop clear consent procedures and privacy policies.  Establish a data governance framework. Consult with a German legal expert specializing in data protection in healthcare.', '* **Recommended Actions:** Determine if the payment processing activities qualify as a regulated service under ZAG. If so, apply for the necessary license from BaFin. Implement a robust AML compliance program.', '* **Recommended Actions:** Consult with a German legal expert specializing in healthcare regulations to determine which specific rules apply and what steps are necessary for compliance.', '* **Recommended Actions:**  Assess if any data transfers occur outside the EU. Implement appropriate safeguards for any such transfers.'], 'country': 'Germany', 'deadline': None, 'estimated_cost': None}, {'title': 'Germany Regulatory Requirement #2 for **Germany', 'gap_type': 'licensing', 'severity': 'critical', 'description': "The startup's activity has potential compliance gaps with the VVGD (Verordnung über die Verarbeitung von Gesundheitsdaten) given its handling of health data in Germany.  Here's a breakdown:\n\n**Gap 1:**\n\n* **Gap Type:** Data Protection/Data Security\n* **Severity:** Critical\n* **Description:** The VVG...", 'recommended_actions': ['* **Recommended Actions:**', '* **Recommended Actions:**', '* **Recommended Actions:**', 'This analysis highlights potential compliance gaps.  A detailed legal review by a German healthcare law expert is strongly recommended to ensure full compliance with the VVGD and other applicable regulations.  The severity and specific requirements can vary based on the exact nature of the data processing activities.'], 'country': 'Germany', 'deadline': None, 'estimated_cost': None}, {'title': 'EU Regulatory Requirement #2 for **Germany', 'gap_type': 'licensing', 'severity': 'critical', 'description': "This startup has several potential compliance gaps with the German Verordnung über die Verarbeitung von Gesundheitsdaten (VGD) - Regulation on the Processing of Health Data, given its handling of health data within its payment processing activities.  It's crucial to note that the provided regulation...", 'recommended_actions': ['* **Recommended Actions:**', '* **Recommended Actions:**', '* **Recommended Actions:**', '* **Recommended Actions:**  Consult with legal experts specializing in German healthcare data protection to determine if any licensing or registration obligations apply.'], 'country': 'EU', 'deadline': None, 'estimated_cost': None}, {'title': 'Germany Regulatory Requirement #1 for **Germany', 'gap_type': 'data_protection', 'severity': 'critical', 'description': '## Analysis of GDPR Compliance Gaps for Healthcare Communication Service Startups in Germany\n\nBased on the provided title "Guidance on GDPR Compliance for Healthcare Startups Processing Health and Financial Data in Germany," we can infer several key compliance requirements and potential gaps for a s...', 'recommended_actions': ["This analysis provides a general overview.  A detailed compliance assessment requires a thorough review of the specific features and functionalities of the communication service, the types of data processed, and the startup's data processing activities.  Consulting with a legal expert specializing in GDPR and healthcare data protection is highly recommended."], 'country': 'Germany', 'deadline': None, 'estimated_cost': None}, {'title': 'Germany Regulatory Requirement #2 for **Germany', 'gap_type': 'data_protection', 'severity': 'critical', 'description': '## Compliance Gap Analysis: Healthcare Communication Startup & VVGD\n\nThis analysis identifies potential compliance gaps between a healthcare communication services startup and the Swiss "Verordnung über die Verarbeitung von Gesundheitsdaten" (VVGD).\n\n**Key Areas of VVGD and Potential Compliance Gaps...', 'recommended_actions': ['**Recommendations:**', '* **Seek legal advice:** Consulting with a data protection expert is highly recommended to ensure full compliance with VVGD.'], 'country': 'Germany', 'deadline': None, 'estimated_cost': None}, {'title': 'Germany Regulatory Requirement #2 for 0.', 'gap_type': 'data_protection', 'severity': 'critical', 'description': '## Compliance Gap Analysis: Healthcare Communication Startup & GDVV\n\nThis analysis examines potential compliance gaps for a startup offering communication services within the healthcare industry, specifically concerning the German "Verordnung über die Verarbeitung personenbezogener, Gesundheits- und...', 'recommended_actions': ['**Recommendations:**', 'By addressing these potential gaps and implementing the recommendations, the healthcare communication startup can minimize its compliance risks and build trust with its users.'], 'country': 'Germany', 'deadline': None, 'estimated_cost': None}, {'title': 'Germany Regulatory Requirement #1 for **Germany', 'gap_type': 'regulatory', 'severity': 'medium', 'description': '* **Data minimization & purpose limitation:** Only collect and process necessary health and financial data for specified, explicit, and legitimate purposes.\n* **Informed consent:** Obtain explicit consent for data processing, detailing purposes, data', 'recommended_actions': ['Review full regulation', 'Consult legal expert'], 'country': 'Germany', 'deadline': None, 'estimated_cost': None}, {'title': 'Germany Regulatory Requirement #2 for **Germany', 'gap_type': 'regulatory', 'severity': 'medium', 'description': '* **Data security:**  VVGD mandates robust technical and organizational measures to protect health data.  The startup *must* implement strong security controls.\n* **Consent & Transparency:**  Generally, explicit consent is required for processing hea', 'recommended_actions': ['Review full regulation', 'Consult legal expert'], 'country': 'Germany', 'deadline': None, 'estimated_cost': None}, {'title': 'Germany Regulatory Requirement #2 for 0.', 'gap_type': 'regulatory', 'severity': 'medium', 'description': 'The GDVV applies to this startup if it processes personal, health, or financial data related to individuals receiving healthcare in Germany.  Key compliance areas likely include: purpose limitation, data minimization, transparency, data security (inc', 'recommended_actions': ['Review full regulation', 'Consult legal expert'], 'country': 'Germany', 'deadline': None, 'estimated_cost': None}, {'title': 'Germany Regulatory Requirement #1 for **Germany', 'gap_type': 'regulatory', 'severity': 'medium', 'description': '* **Data minimization & purpose limitation:** Only collect and process necessary health and financial data for specified, explicit, and legitimate purposes.\n* **Informed consent:** Obtain explicit consent for data processing, detailing purposes, reci', 'recommended_actions': ['Review full regulation', 'Consult legal expert'], 'country': 'Germany', 'deadline': None, 'estimated_cost': None}, {'title': 'EU Regulatory Requirement #2 for **Germany', 'gap_type': 'regulatory', 'severity': 'medium', 'description': '* **Data minimization & purpose limitation:**  The startup must only collect and process health data strictly necessary for the specified purpose.\n* **Consent & transparency:**  Explicit consent is generally required for processing health data, along', 'recommended_actions': ['Review full regulation', 'Consult legal expert'], 'country': 'EU', 'deadline': None, 'estimated_cost': None}, {'title': 'EU Regulatory Requirement #2 for 0.', 'gap_type': 'regulatory', 'severity': 'medium', 'description': 'The startup, processing healthcare data in Germany, must comply with the BDSG and its specific annex for healthcare, especially regarding contracts and data protection measures when using *third-party processors*.  This includes strict limitations on', 'recommended_actions': ['Review full regulation', 'Consult legal expert'], 'country': 'EU', 'deadline': None, 'estimated_cost': None}]}, 'implementation_plan': {'plan_id': 'plan_1627', 'total_action_items': 20, 'implementation_timeline': 'Phase 1 (Immediate - 2 weeks): 11 critical items; Phase 2 (Month 1): 2 high-priority items; Phase 3 (Months 2-3): 7 medium-priority items', 'total_estimated_cost': '$1,700 - $1,000', 'risk_level': 'critical', 'next_review_date': '2025-08-17', 'action_items': [{'id': 'general_legal_structure', 'title': 'Establish Legal Business Structure', 'description': 'Register business entity and obtain necessary business licenses in target jurisdictions.', 'priority': 'high', 'category': 'business_setup', 'estimated_effort': '1-2 weeks', 'estimated_cost': '$500-2000', 'deadline': None, 'dependencies': [], 'resources_needed': ['Business attorney', 'Registration documents'], 'status': 'pending'}, {'id': 'action_1_licensing', 'title': '## Action Item: Obtain GDVV License for Data Processing', 'description': '## Action Item: Obtain GDVV License for Data Processing\n\n**1. Title:** Secure GDVV License for Healthcare Data Processing in Germany\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Consult with German Legal Counsel Specialized in Healthcare Data Privacy (1-2 days):** Engage legal counsel experienced ...', 'priority': 'critical', 'category': 'licensing', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-08-03', 'dependencies': ['general_legal_structure'], 'resources_needed': ['Documentation preparation', 'Legal documentation', 'Government fees', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_2_licensing', 'title': '## Action Item: Obtain VVGD License for Health Data Processing', 'description': '## Action Item: Obtain VVGD License for Health Data Processing\n\n**1. Title:** Secure VVGD License for Health Data Processing in Germany\n\n**2. Step-by-Step Description:**\n\n* **Step 1:  Initial Consultation with German Healthcare Legal Counsel (1 week):** Engage experienced legal counsel specializing ...', 'priority': 'critical', 'category': 'licensing', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-08-03', 'dependencies': ['general_legal_structure'], 'resources_needed': ['Documentation preparation', 'Legal documentation', 'Government fees', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_3_data_protection', 'title': '**1. Title:** Implement BDSG/GDPR Compliant Data Processing for German Users', 'description': '## Action Item: Implement BDSG & GDPR Compliant Data Processing Procedures for German Operations\n\n**1. Title:** Implement BDSG/GDPR Compliant Data Processing for German Users\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Gap Analysis & Documentation (Week 1):**\n    * Conduct a thorough gap analysis...', 'priority': 'critical', 'category': 'data_protection', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-08-03', 'dependencies': [], 'resources_needed': ['Documentation preparation', 'Privacy attorney', 'Accounting/Tax advisor', 'Technical implementation', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_4_data_protection', 'title': '## Action Item: Establish Lawful Basis for Data Processing in Germany', 'description': '## Action Item: Establish Lawful Basis for Data Processing in Germany\n\n**1. Title:** Document and Implement Lawful Basis for Health and Financial Data Processing under GDPR in Germany\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Review Current Data Processing Activities:**  Create a comprehensive ...', 'priority': 'critical', 'category': 'data_protection', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-08-03', 'dependencies': [], 'resources_needed': ['Documentation preparation', 'Privacy attorney', 'Accounting/Tax advisor', 'Technical implementation', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_5_data_protection', 'title': '**2. Step-by-Step Description:**', 'description': '## Action Item: Implement VGD-Compliant Data Processing Procedures for German Users\n\n**1. Title:** Implement VGD-Compliant Data Processing Procedures for German Users\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Gap Analysis & Legal Consultation (Week 1):**\n    * Engage German legal counsel specia...', 'priority': 'critical', 'category': 'data_protection', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-08-03', 'dependencies': [], 'resources_needed': ['Documentation preparation', 'Privacy attorney', 'Technical implementation', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_6_licensing', 'title': '## Action Item: Secure Payment Processing License in Germany', 'description': '## Action Item: Secure Payment Processing License in Germany\n\n**1. Title:** Obtain German Payment Institution License (ZAG License)\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Legal Consultation (Week 1):** Engage German legal counsel specializing in financial regulations and data protection (GDP...', 'priority': 'critical', 'category': 'licensing', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-08-03', 'dependencies': ['general_legal_structure'], 'resources_needed': ['Documentation preparation', 'Accounting/Tax advisor', 'Legal documentation', 'Government fees', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_7_licensing', 'title': '## Action Item: Obtain BaFin License for Payment Processing in Germany', 'description': '## Action Item: Obtain BaFin License for Payment Processing in Germany\n\n**1. Title:** Secure BaFin License for Payment Processing under ZAG\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Determine License Requirements:** Consult with German legal counsel specializing in financial regulations (specif...', 'priority': 'critical', 'category': 'licensing', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-08-03', 'dependencies': ['general_legal_structure'], 'resources_needed': ['Documentation preparation', 'Industry consultant', 'Accounting/Tax advisor', 'Legal documentation', 'Government fees', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_8_licensing', 'title': '**2. Step-by-Step Description:**', 'description': '## Action Item: Obtain License for Processing Health Data in German Payment Transactions\n\n**1. Title:** Secure §20 VGD License for Health Data Processing in Payment Activities\n\n**2. Step-by-Step Description:**\n\n* **Step 1:  Legal Consultation (VGD Expertise):** Engage German legal counsel specializi...', 'priority': 'critical', 'category': 'licensing', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-08-03', 'dependencies': ['general_legal_structure'], 'resources_needed': ['Documentation preparation', 'Industry consultant', 'Legal documentation', 'Government fees', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_9_data_protection', 'title': '**1. Title:** Implement Pseudonymization for Patient Communication Data', 'description': '## Action Item: Implement Pseudonymization and Anonymization Procedures for Patient Communication Data\n\n**1. Title:** Implement Pseudonymization for Patient Communication Data\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Data Mapping and Classification (1 day):** Identify all patient communication...', 'priority': 'critical', 'category': 'data_protection', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-08-03', 'dependencies': [], 'resources_needed': ['Documentation preparation', 'Privacy attorney', 'Technical implementation', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_10_data_protection', 'title': '**2. Step-by-Step Description:**', 'description': '## Action Item: Implement VVGD-Compliant Data Protection Measures for Healthcare Communication Services\n\n**1. Title:** Implement End-to-End Encryption and Data Minimization for VVGD Compliance\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Gap Analysis & Legal Consultation (Week 1):** Engage Swiss l...', 'priority': 'critical', 'category': 'data_protection', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-08-03', 'dependencies': [], 'resources_needed': ['Documentation preparation', 'Privacy attorney', 'Technical implementation', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_11_data_protection', 'title': '**1. Title:** Implement Pseudonymization and Anonymization for GDVV Compliance', 'description': '## Action Item: Implement Pseudonymization and Anonymization Procedures for Patient Communication Data\n\n**1. Title:** Implement Pseudonymization and Anonymization for GDVV Compliance\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Legal Consultation (1 day):** Engage German legal counsel specializing...', 'priority': 'critical', 'category': 'data_protection', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-08-03', 'dependencies': [], 'resources_needed': ['Documentation preparation', 'Privacy attorney', 'Technical implementation', 'Legal counsel'], 'status': 'pending'}, {'id': 'general_data_protection', 'title': 'Implement Data Protection Framework', 'description': 'Establish privacy policy, data handling procedures, and GDPR compliance if operating in EU.', 'priority': 'high', 'category': 'data_protection', 'estimated_effort': '2-3 weeks', 'estimated_cost': '$1000-3000', 'deadline': None, 'dependencies': [], 'resources_needed': ['Privacy attorney', 'Technical implementation'], 'status': 'pending'}, {'id': 'action_12_regulatory', 'title': '**2. Step-by-Step Description:**', 'description': '## Action Item: Implement Data Minimization & Informed Consent Procedures for German Operations\n\n**1. Title:** Implement Data Minimization & Informed Consent Procedures for German Operations\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Data Mapping & Minimization (1 week):**\n    * Identify all dat...', 'priority': 'medium', 'category': 'regulatory', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-10-12', 'dependencies': [], 'resources_needed': ['Documentation preparation', 'Accounting/Tax advisor', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_13_regulatory', 'title': '**1. Title:** Implement VVGD-Compliant Data Security and Consent Management', 'description': '## Action Item: Implement Data Security Controls & Consent Procedures for VVGD Compliance\n\n**1. Title:** Implement VVGD-Compliant Data Security and Consent Management\n\n**2. Step-by-Step Description:**\n\n* **Phase 1: Data Security Assessment & Implementation (Weeks 1-4):**\n    * a) **Gap Analysis:** C...', 'priority': 'medium', 'category': 'regulatory', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-10-12', 'dependencies': [], 'resources_needed': ['Documentation preparation', 'Industry consultant', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_14_regulatory', 'title': '## Action Item: Implement GDVV-Compliant Data Processing Procedures', 'description': '## Action Item: Implement GDVV-Compliant Data Processing Procedures\n\n**1. Title:** Implement GDVV-Compliant Data Processing Procedures for German Healthcare Operations\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Gap Analysis & Documentation (Week 1):**\n    * Review the GDVV requirements in detail...', 'priority': 'medium', 'category': 'regulatory', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-10-12', 'dependencies': [], 'resources_needed': ['Documentation preparation', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_15_regulatory', 'title': '**2. Step-by-Step Description:**', 'description': '## Action Item: Implement Data Minimization and Informed Consent Procedures for German Operations\n\n**1. Title:** Implement Data Minimization and Informed Consent Procedures for German Operations\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Data Mapping and Minimization (Week 1-2):**\n    * Identify...', 'priority': 'medium', 'category': 'regulatory', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-10-12', 'dependencies': [], 'resources_needed': ['Documentation preparation', 'Accounting/Tax advisor', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_16_regulatory', 'title': '**2. Step-by-Step Description:**', 'description': '## Action Item: Implement Data Minimization and Purpose Limitation for German Operations\n\n**1. Title:** Implement Data Minimization and Purpose Limitation Procedures for German Users\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Data Mapping (1 week):**  Identify all health data collected and proce...', 'priority': 'medium', 'category': 'regulatory', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-10-12', 'dependencies': [], 'resources_needed': ['Documentation preparation', 'Legal counsel'], 'status': 'pending'}, {'id': 'action_17_regulatory', 'title': '**2. Step-by-Step Description:**', 'description': '## Action Item: Implement BDSG-Compliant Data Processing Agreements with Third-Party Processors\n\n**1. Title:** Implement BDSG-Compliant Data Processing Agreements (DPAs) with All Third-Party Processors Handling Healthcare Data\n\n**2. Step-by-Step Description:**\n\n* **Step 1: Identify all third-party p...', 'priority': 'medium', 'category': 'regulatory', 'estimated_effort': '2-4 weeks', 'estimated_cost': None, 'deadline': '2025-10-12', 'dependencies': [], 'resources_needed': ['Documentation preparation', 'Legal counsel'], 'status': 'pending'}, {'id': 'general_monitoring', 'title': 'Set Up Compliance Monitoring System', 'description': 'Implement regular compliance reviews and regulatory update monitoring.', 'priority': 'medium', 'category': 'monitoring', 'estimated_effort': '1 week', 'estimated_cost': '$200-500', 'deadline': None, 'dependencies': [], 'resources_needed': ['Compliance software', 'Legal updates subscription'], 'status': 'pending'}]}}
+2025-07-20 05:23:42 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 05:23:42 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 05:23:44 | INFO     | integrations.gemini_client:__init__:17 - Gemini client initialized successfully
+2025-07-20 05:23:59 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 05:23:59 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 05:23:59 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 05:24:00 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 05:24:00 | INFO     | agents.scout_agent:__init__:53 - ScoutAgent initialized with 3 data sources
+2025-07-20 05:24:00 | INFO     | agents.matcher_agent:__init__:38 - MatcherAgent initialized
+2025-07-20 05:24:00 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 05:24:01 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 05:24:01 | INFO     | core.orchestrator:__init__:57 - ComplianceOrchestrator initialized
+2025-07-20 05:24:01 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 05:24:01 | INFO     | __main__:main:218 - Running in test mode...
+2025-07-20 05:24:01 | INFO     | __main__:test_workflow:63 - Testing ComplianceNavigator workflow...
+2025-07-20 05:24:01 | INFO     | __main__:test_workflow:75 - Running sample compliance analysis...
+2025-07-20 05:24:01 | INFO     | core.orchestrator:process_compliance_request:100 - Starting compliance workflow workflow_2986
+2025-07-20 05:24:01 | INFO     | core.orchestrator:_intake_node:135 - Workflow workflow_2986: Executing Intake Agent
+2025-07-20 05:24:01 | INFO     | agents.intake_agent:parse_startup_description:41 - IntakeAgent: Processing startup description
+2025-07-20 05:24:02 | WARNING  | integrations.gemini_client:extract_structured_data:165 - Could not extract valid JSON from Gemini response, creating fallback structure
+2025-07-20 05:24:02 | WARNING  | agents.intake_agent:parse_startup_description:81 - IntakeAgent: Empty or invalid data from Gemini, using fallback parsing
+2025-07-20 05:24:02 | INFO     | agents.intake_agent:parse_startup_description:95 - IntakeAgent: Successfully parsed startup info - Industry: healthcare, Countries: ['Germany']
+2025-07-20 05:24:02 | INFO     | agents.intake_agent:generate_research_queries:115 - IntakeAgent: Generating research queries
+2025-07-20 05:24:07 | INFO     | agents.intake_agent:generate_research_queries:150 - IntakeAgent: Generated 3 research queries
+2025-07-20 05:24:07 | INFO     | core.orchestrator:_intake_node:146 - Intake Agent completed: Industry=healthcare, Queries=3
+2025-07-20 05:24:07 | INFO     | core.orchestrator:_scout_node:157 - Workflow workflow_2986: Executing Scout Agent
+2025-07-20 05:24:07 | INFO     | agents.scout_agent:research_regulations:66 - ScoutAgent: Starting regulatory research with 3 queries
+2025-07-20 05:24:27 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 05:24:27 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 05:24:28 | INFO     | integrations.gemini_client:__init__:17 - Gemini client initialized successfully
+2025-07-20 05:24:44 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 05:24:44 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 05:24:44 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 05:24:45 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 05:24:45 | INFO     | agents.scout_agent:__init__:53 - ScoutAgent initialized with 3 data sources
+2025-07-20 05:24:45 | INFO     | agents.matcher_agent:__init__:38 - MatcherAgent initialized
+2025-07-20 05:24:45 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 05:24:45 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 05:24:45 | INFO     | core.orchestrator:__init__:57 - ComplianceOrchestrator initialized
+2025-07-20 05:24:45 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 05:24:45 | INFO     | __main__:main:218 - Running in test mode...
+2025-07-20 05:24:45 | INFO     | __main__:test_workflow:63 - Testing ComplianceNavigator workflow...
+2025-07-20 05:24:45 | INFO     | __main__:test_workflow:75 - Running sample compliance analysis...
+2025-07-20 05:24:45 | INFO     | core.orchestrator:process_compliance_request:100 - Starting compliance workflow workflow_11921
+2025-07-20 05:24:45 | INFO     | core.orchestrator:_intake_node:141 - Workflow workflow_11921: Executing Intake Agent
+2025-07-20 05:24:45 | INFO     | agents.intake_agent:parse_startup_description:41 - IntakeAgent: Processing startup description
+2025-07-20 05:24:47 | WARNING  | integrations.gemini_client:extract_structured_data:165 - Could not extract valid JSON from Gemini response, creating fallback structure
+2025-07-20 05:24:47 | WARNING  | agents.intake_agent:parse_startup_description:81 - IntakeAgent: Empty or invalid data from Gemini, using fallback parsing
+2025-07-20 05:24:47 | INFO     | agents.intake_agent:parse_startup_description:95 - IntakeAgent: Successfully parsed startup info - Industry: healthcare, Countries: ['Germany']
+2025-07-20 05:24:47 | INFO     | agents.intake_agent:generate_research_queries:115 - IntakeAgent: Generating research queries
+2025-07-20 05:24:55 | INFO     | agents.intake_agent:generate_research_queries:150 - IntakeAgent: Generated 6 research queries
+2025-07-20 05:24:55 | INFO     | core.orchestrator:_intake_node:152 - Intake Agent completed: Industry=healthcare, Queries=6
+2025-07-20 05:24:55 | INFO     | core.orchestrator:_scout_node:163 - Workflow workflow_11921: Executing Scout Agent
+2025-07-20 05:24:55 | INFO     | agents.scout_agent:research_regulations:66 - ScoutAgent: Starting regulatory research with 6 queries
+2025-07-20 05:29:20 | INFO     | agents.scout_agent:research_regulations:92 - ScoutAgent: Found 4 relevant regulatory documents
+2025-07-20 05:29:21 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_0464e105de69
+2025-07-20 05:29:21 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_4ac8db171087
+2025-07-20 05:29:22 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_f9635aa1aeb7
+2025-07-20 05:29:22 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_eea10d431387
+2025-07-20 05:29:22 | INFO     | core.orchestrator:_scout_node:176 - Scout Agent completed: Found 4 regulatory documents
+2025-07-20 05:29:22 | INFO     | core.orchestrator:_matcher_node:187 - Workflow workflow_11921: Executing Matcher Agent
+2025-07-20 05:29:22 | INFO     | agents.matcher_agent:analyze_compliance_gaps:55 - MatcherAgent: Analyzing compliance gaps for healthcare startup
+2025-07-20 05:31:29 | INFO     | agents.matcher_agent:analyze_compliance_gaps:87 - MatcherAgent: Found 9 compliance gaps, risk level: critical
+2025-07-20 05:31:29 | INFO     | core.orchestrator:_matcher_node:200 - Matcher Agent completed: Found 9 gaps, risk level critical
+2025-07-20 05:31:29 | INFO     | core.orchestrator:_planner_node:211 - Workflow workflow_11921: Executing Planner Agent
+2025-07-20 05:31:29 | INFO     | agents.planner_agent:create_compliance_plan:62 - PlannerAgent: Creating compliance plan for healthcare startup
+2025-07-20 05:33:18 | INFO     | agents.planner_agent:create_compliance_plan:92 - PlannerAgent: Created plan with 12 action items, risk level: critical
+2025-07-20 05:33:18 | INFO     | core.orchestrator:_planner_node:224 - Planner Agent completed: Created plan with 12 action items
+2025-07-20 05:33:18 | INFO     | core.orchestrator:_monitoring_node:235 - Workflow workflow_11921: Executing Monitoring Agent
+2025-07-20 05:33:18 | INFO     | agents.monitoring_agent:setup_monitoring:62 - MonitoringAgent: Setting up monitoring for test_user
+2025-07-20 05:33:18 | INFO     | agents.monitoring_agent:setup_monitoring:92 - Monitoring scheduled for test_user with weekly frequency
+2025-07-20 05:33:18 | INFO     | agents.monitoring_agent:start_monitoring:445 - MonitoringAgent: Monitoring scheduler started
+2025-07-20 05:33:18 | INFO     | core.orchestrator:_monitoring_node:252 - Monitoring Agent completed: Set up monitoring for test_user
+2025-07-20 05:33:18 | INFO     | core.orchestrator:process_compliance_request:124 - Compliance workflow workflow_11921 completed successfully
+2025-07-20 05:33:18 | SUCCESS  | __main__:test_workflow:82 - ✅ Workflow test completed successfully!
+2025-07-20 05:33:18 | INFO     | __main__:test_workflow:83 - Found 9 compliance gaps
+2025-07-20 05:33:18 | INFO     | __main__:test_workflow:84 - Generated 12 action items
+2025-07-20 05:34:02 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 05:34:02 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 05:34:03 | INFO     | integrations.gemini_client:__init__:17 - Gemini client initialized successfully
+2025-07-20 05:34:16 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 05:34:16 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 05:34:16 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 05:34:16 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 05:34:17 | INFO     | agents.scout_agent:__init__:53 - ScoutAgent initialized with 3 data sources
+2025-07-20 05:34:17 | INFO     | agents.matcher_agent:__init__:38 - MatcherAgent initialized
+2025-07-20 05:34:17 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 05:34:17 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 05:34:17 | INFO     | core.orchestrator:__init__:57 - ComplianceOrchestrator initialized
+2025-07-20 05:34:17 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 05:34:17 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-20 05:34:17 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-20 07:18:01 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-20 07:31:22 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 07:31:22 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 07:31:23 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 07:33:15 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 07:33:15 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 07:33:16 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 07:33:30 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 07:33:30 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 07:33:30 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 07:33:31 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 07:33:31 | INFO     | agents.matcher_agent:__init__:44 - MatcherAgent initialized
+2025-07-20 07:33:31 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 07:33:31 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 07:33:31 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-20 07:33:31 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 07:33:31 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-20 07:33:31 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-20 07:44:30 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-20 07:44:34 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 07:44:34 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 07:44:36 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 07:44:53 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 07:44:53 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 07:44:53 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 07:44:54 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 07:44:54 | ERROR    | __main__:check_dependencies:58 - Dependency check failed: expected an indented block after 'for' statement on line 227 (scout_agent.py, line 228)
+2025-07-20 07:44:54 | ERROR    | __main__:main:209 - ❌ Dependency check failed. Please check your configuration.
+2025-07-20 07:45:58 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 07:45:58 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 07:45:59 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 07:46:13 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 07:46:13 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 07:46:13 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 07:46:14 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 07:46:14 | ERROR    | __main__:check_dependencies:58 - Dependency check failed: expected an indented block after 'for' statement on line 227 (scout_agent.py, line 228)
+2025-07-20 07:46:14 | ERROR    | __main__:main:209 - ❌ Dependency check failed. Please check your configuration.
+2025-07-20 07:47:50 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 07:47:50 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 07:47:51 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 07:48:04 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 07:48:04 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 07:48:04 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 07:48:04 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 07:48:04 | ERROR    | __main__:check_dependencies:58 - Dependency check failed: expected an indented block after 'for' statement on line 227 (scout_agent.py, line 228)
+2025-07-20 07:48:04 | ERROR    | __main__:main:209 - ❌ Dependency check failed. Please check your configuration.
+2025-07-20 07:52:42 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 07:52:42 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 07:52:43 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 07:52:58 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 07:52:58 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 07:52:58 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 07:52:58 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 07:52:58 | INFO     | agents.matcher_agent:__init__:44 - MatcherAgent initialized
+2025-07-20 07:52:58 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 07:52:58 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 07:52:58 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-20 07:52:58 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 07:52:58 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-20 07:52:58 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-20 07:55:19 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-20 07:55:28 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 07:55:28 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 07:55:29 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 07:55:44 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 07:55:44 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 07:55:45 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 07:55:57 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 07:55:57 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 07:55:57 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 07:55:58 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 07:55:58 | INFO     | agents.matcher_agent:__init__:44 - MatcherAgent initialized
+2025-07-20 07:55:58 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 07:55:58 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 07:55:58 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-20 07:55:58 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 07:55:58 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-20 07:55:58 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-20 08:15:45 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-20 08:15:49 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 08:15:49 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 08:15:50 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 08:16:05 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 08:16:05 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 08:16:05 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 08:16:06 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 08:16:06 | INFO     | agents.matcher_agent:__init__:44 - MatcherAgent initialized
+2025-07-20 08:16:06 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 08:16:06 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 08:16:06 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-20 08:16:06 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 08:16:06 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-20 08:16:06 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-20 12:05:35 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 12:05:35 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 12:05:39 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 12:06:14 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 12:06:14 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 12:06:14 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 12:06:16 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 12:06:17 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-20 12:06:17 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 12:06:17 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 12:06:17 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-20 12:06:17 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 12:06:17 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-20 12:06:17 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-20 12:09:18 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-20 12:13:12 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 12:13:12 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 12:13:14 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 12:13:32 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 12:13:32 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 12:13:32 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 12:13:33 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 12:13:33 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-20 12:13:33 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 12:13:34 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 12:13:34 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-20 12:13:34 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 12:13:34 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-20 12:13:34 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-20 12:17:15 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 12:17:15 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 12:17:17 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 12:17:31 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 12:17:31 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 12:17:31 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 12:17:32 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 12:17:32 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-20 12:17:32 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 12:17:32 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 12:17:32 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-20 12:17:32 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 12:17:32 | INFO     | __main__:main:218 - Running in test mode...
+2025-07-20 12:17:32 | INFO     | __main__:test_workflow:63 - Testing ComplianceNavigator workflow...
+2025-07-20 12:17:32 | INFO     | __main__:test_workflow:75 - Running sample compliance analysis...
+2025-07-20 12:17:33 | INFO     | core.orchestrator:process_compliance_request:125 - Security validation passed for user: test_user
+2025-07-20 12:17:33 | INFO     | core.orchestrator:process_compliance_request:152 - Starting compliance workflow workflow_80828
+2025-07-20 12:17:33 | INFO     | core.orchestrator:_intake_node:197 - Workflow workflow_80828: Executing Intake Agent
+2025-07-20 12:17:33 | INFO     | agents.intake_agent:parse_startup_description:41 - IntakeAgent: Processing startup description
+2025-07-20 12:17:35 | WARNING  | integrations.gemini_client:extract_structured_data:309 - Could not extract valid JSON from Gemini response, creating fallback structure
+2025-07-20 12:17:35 | WARNING  | agents.intake_agent:parse_startup_description:81 - IntakeAgent: Empty or invalid data from Gemini, using fallback parsing
+2025-07-20 12:17:35 | INFO     | agents.intake_agent:parse_startup_description:95 - IntakeAgent: Successfully parsed startup info - Industry: healthcare, Countries: ['Germany']
+2025-07-20 12:17:35 | INFO     | agents.intake_agent:generate_research_queries:115 - IntakeAgent: Generating research queries
+2025-07-20 12:17:43 | INFO     | agents.intake_agent:generate_research_queries:150 - IntakeAgent: Generated 7 research queries
+2025-07-20 12:17:43 | INFO     | core.orchestrator:_intake_node:208 - Intake Agent completed: Industry=healthcare, Queries=7
+2025-07-20 12:17:43 | INFO     | core.orchestrator:_scout_node:219 - Workflow workflow_80828: Executing Scout Agent
+2025-07-20 12:17:43 | INFO     | agents.scout_agent:research_regulations:127 - ScoutAgent: Starting universal regulatory research for ['Germany']
+2025-07-20 12:17:43 | INFO     | agents.scout_agent:research_regulations:183 - Processing 1 countries in parallel: ['Germany']
+2025-07-20 12:17:43 | INFO     | agents.scout_agent:_process_single_country:633 - Processing regulations specifically for Germany
+2025-07-20 12:17:43 | INFO     | utils.cache:__init__:29 - Performance cache initialized with TTL 3600s
+2025-07-20 12:17:43 | INFO     | agents.scout_agent:_process_single_country:665 - Using optimized knowledge base for Germany
+2025-07-20 12:17:43 | INFO     | agents.scout_agent:_search_optimized_regulations:772 - Using optimized search for Germany in healthcare
+2025-07-20 12:17:43 | INFO     | agents.scout_agent:_search_optimized_regulations:779 - Found optimized mapping: Germany matches Germany
+2025-07-20 12:17:43 | INFO     | agents.scout_agent:_search_optimized_regulations:798 - Found 1 optimized regulations for Germany
+2025-07-20 12:17:43 | INFO     | agents.scout_agent:research_regulations:201 - Found 1 regulations for Germany
+2025-07-20 12:17:43 | INFO     | agents.scout_agent:research_regulations:213 - Total regulations found across all countries: 1
+2025-07-20 12:17:43 | INFO     | agents.scout_modules.document_processor:deduplicate_documents:35 - Deduplicated 16 documents to 5 unique documents
+2025-07-20 12:17:43 | INFO     | agents.scout_agent:_validate_regulations:621 - ScoutAgent: Validated 5/5 regulations
+2025-07-20 12:17:43 | INFO     | agents.scout_agent:research_regulations:236 - ScoutAgent: Found 5 regulations across 1 countries
+2025-07-20 12:17:44 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_9c590cb3e378
+2025-07-20 12:17:44 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_1ea16f04c680
+2025-07-20 12:17:45 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_95678e8a86a7
+2025-07-20 12:17:45 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_4eb069cf4b9e
+2025-07-20 12:17:45 | INFO     | core.vector_store:add_regulatory_document:99 - Added regulatory document: reg_48deaf599f05
+2025-07-20 12:17:45 | INFO     | core.orchestrator:_scout_node:236 - Scout Agent completed: Found 5 regulatory documents
+2025-07-20 12:17:45 | INFO     | core.orchestrator:_matcher_node:247 - Workflow workflow_80828: Executing Matcher Agent
+2025-07-20 12:17:45 | INFO     | agents.matcher_agent:analyze_compliance_gaps:63 - MatcherAgent: Analyzing compliance gaps for healthcare startup
+2025-07-20 12:20:29 | INFO     | agents.matcher_agent:analyze_compliance_gaps:95 - MatcherAgent: Found 15 compliance gaps, risk level: critical
+2025-07-20 12:20:30 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_162b45021877
+2025-07-20 12:20:30 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_2e0257ced694
+2025-07-20 12:20:31 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_df571ed4f54b
+2025-07-20 12:20:31 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_eba273c41c84
+2025-07-20 12:20:31 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_9dec864aff37
+2025-07-20 12:20:31 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_79a9d70887b1
+2025-07-20 12:20:32 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_e470a1130a4e
+2025-07-20 12:20:32 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_65f94b465398
+2025-07-20 12:20:32 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_38ca84d37b8b
+2025-07-20 12:20:32 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_4eeef422705e
+2025-07-20 12:20:33 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_44ba5af8ff9d
+2025-07-20 12:20:33 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_fe751cfd7a36
+2025-07-20 12:20:33 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_8aef94135fce
+2025-07-20 12:20:34 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_e6a87a6b3734
+2025-07-20 12:20:34 | INFO     | core.vector_store:add_compliance_case:200 - Added compliance case: case_7d7e8a86d5ab
+2025-07-20 12:20:34 | INFO     | core.orchestrator:_matcher_node:260 - Matcher Agent completed: Found 15 gaps, risk level critical
+2025-07-20 12:20:34 | INFO     | core.orchestrator:_planner_node:271 - Workflow workflow_80828: Executing Planner Agent
+2025-07-20 12:20:34 | INFO     | agents.planner_agent:create_compliance_plan:62 - PlannerAgent: Creating compliance plan for healthcare startup
+2025-07-20 12:23:27 | INFO     | agents.planner_agent:create_compliance_plan:92 - PlannerAgent: Created plan with 18 action items, risk level: critical
+2025-07-20 12:23:27 | INFO     | core.orchestrator:_planner_node:284 - Planner Agent completed: Created plan with 18 action items
+2025-07-20 12:23:27 | INFO     | core.orchestrator:_monitoring_node:295 - Workflow workflow_80828: Executing Monitoring Agent
+2025-07-20 12:23:27 | INFO     | agents.monitoring_agent:setup_monitoring:62 - MonitoringAgent: Setting up monitoring for test_user
+2025-07-20 12:23:27 | INFO     | agents.monitoring_agent:setup_monitoring:92 - Monitoring scheduled for test_user with weekly frequency
+2025-07-20 12:23:27 | INFO     | agents.monitoring_agent:start_monitoring:445 - MonitoringAgent: Monitoring scheduler started
+2025-07-20 12:23:27 | INFO     | core.orchestrator:_monitoring_node:312 - Monitoring Agent completed: Set up monitoring for test_user
+2025-07-20 12:23:27 | INFO     | core.orchestrator:process_compliance_request:180 - Compliance workflow workflow_80828 completed successfully
+2025-07-20 12:23:27 | SUCCESS  | __main__:test_workflow:82 - ✅ Workflow test completed successfully!
+2025-07-20 12:23:27 | INFO     | __main__:test_workflow:83 - Found 15 compliance gaps
+2025-07-20 12:23:27 | INFO     | __main__:test_workflow:84 - Generated 18 action items
+2025-07-20 12:40:26 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 12:40:26 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 12:40:27 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 12:40:40 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 12:40:40 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 12:40:40 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 12:40:41 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 12:40:41 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-20 12:40:41 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 12:40:41 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 12:40:41 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-20 12:40:41 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 12:40:41 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-20 12:40:41 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-20 12:44:20 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 12:44:20 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 12:44:21 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 12:44:56 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 12:44:56 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 12:44:56 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 12:44:57 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 12:44:57 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-20 12:44:57 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 12:44:57 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 12:44:57 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-20 12:44:57 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 12:44:57 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-20 12:44:57 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-20 12:52:21 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-20 12:52:21 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-20 12:52:23 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-20 12:52:39 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-20 12:52:39 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-20 12:52:39 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-20 12:52:39 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-20 12:52:40 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-20 12:52:40 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-20 12:52:40 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-20 12:52:40 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-20 12:52:40 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-20 12:52:40 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-20 12:52:40 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 05:14:23 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 05:14:23 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 05:14:41 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 05:16:36 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-22 05:16:36 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-22 05:16:36 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-22 05:16:38 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 05:16:38 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 05:16:38 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 05:16:38 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 05:16:38 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 05:16:38 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 05:16:38 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 05:16:38 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 05:40:55 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 05:40:55 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 05:40:56 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 05:41:18 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-22 05:41:18 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-22 05:41:18 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-22 05:41:19 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 05:41:20 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 05:41:20 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 05:41:20 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 05:41:20 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 05:41:20 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 05:41:20 | INFO     | __main__:main:218 - Running in test mode...
+2025-07-22 05:41:20 | INFO     | __main__:test_workflow:63 - Testing ComplianceNavigator workflow...
+2025-07-22 05:41:20 | INFO     | __main__:test_workflow:75 - Running sample compliance analysis...
+2025-07-22 05:41:20 | INFO     | core.orchestrator:process_compliance_request:125 - Security validation passed for user: test_user
+2025-07-22 05:41:20 | INFO     | core.orchestrator:process_compliance_request:152 - Starting compliance workflow workflow_3681
+2025-07-22 05:41:20 | INFO     | core.orchestrator:_intake_node:197 - Workflow workflow_3681: Executing Intake Agent
+2025-07-22 05:41:20 | INFO     | agents.intake_agent:parse_startup_description:41 - IntakeAgent: Processing startup description with self-validation
+2025-07-22 05:41:22 | WARNING  | integrations.gemini_client:extract_structured_data:309 - Could not extract valid JSON from Gemini response, creating fallback structure
+2025-07-22 05:41:22 | WARNING  | agents.intake_agent:_extract_startup_info:109 - IntakeAgent: Empty or invalid data from Gemini, using fallback parsing
+2025-07-22 05:41:26 | INFO     | agents.intake_agent:parse_startup_description:51 - IntakeAgent: Low confidence (0.60), re-extracting with focused approach
+2025-07-22 05:41:26 | ERROR    | core.orchestrator:_intake_node:213 - Intake Agent error: 'list' object has no attribute 'get'
+2025-07-22 05:41:26 | INFO     | core.orchestrator:_scout_node:219 - Workflow workflow_3681: Executing Scout Agent
+2025-07-22 05:41:26 | ERROR    | core.orchestrator:_scout_node:241 - Scout Agent error: Missing startup info or research queries from Intake Agent
+2025-07-22 05:41:26 | INFO     | core.orchestrator:_matcher_node:247 - Workflow workflow_3681: Executing Matcher Agent
+2025-07-22 05:41:26 | ERROR    | core.orchestrator:_matcher_node:265 - Matcher Agent error: Missing startup info or regulatory documents from previous agents
+2025-07-22 05:41:26 | INFO     | core.orchestrator:_planner_node:271 - Workflow workflow_3681: Executing Planner Agent
+2025-07-22 05:41:26 | ERROR    | core.orchestrator:_planner_node:289 - Planner Agent error: Missing startup info or match result from previous agents
+2025-07-22 05:41:26 | INFO     | core.orchestrator:_monitoring_node:295 - Workflow workflow_3681: Executing Monitoring Agent
+2025-07-22 05:41:26 | ERROR    | core.orchestrator:_monitoring_node:317 - Monitoring Agent error: Missing startup info for monitoring setup
+2025-07-22 05:41:26 | INFO     | core.orchestrator:process_compliance_request:180 - Compliance workflow workflow_3681 completed successfully
+2025-07-22 05:41:26 | ERROR    | __main__:test_workflow:87 - ❌ Workflow test failed
+2025-07-22 05:41:26 | ERROR    | __main__:test_workflow:88 - Results: {'workflow_id': 'workflow_3681', 'status': 'failed', 'error': 'Failed to parse startup information', 'errors': ["Intake Agent error: 'list' object has no attribute 'get'", 'Scout Agent error: Missing startup info or research queries from Intake Agent', 'Matcher Agent error: Missing startup info or regulatory documents from previous agents', 'Planner Agent error: Missing startup info or match result from previous agents', 'Monitoring Agent error: Missing startup info for monitoring setup']}
+2025-07-22 05:52:22 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 05:52:22 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 05:52:24 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 05:52:49 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-22 05:52:58 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 05:52:58 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 05:52:59 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 05:53:13 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-22 05:53:13 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-22 05:53:13 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-22 05:53:14 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 05:53:14 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 05:53:14 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 05:53:14 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 05:53:14 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 05:53:14 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 05:53:14 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 05:53:14 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 06:03:28 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 06:03:28 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 06:03:30 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 06:04:08 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-22 06:04:11 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 06:04:11 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 06:04:13 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 06:04:37 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-22 06:04:37 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-22 06:04:37 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-22 06:04:38 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 06:04:38 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 06:04:38 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 06:04:38 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 06:04:38 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 06:04:38 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 06:04:38 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 06:04:38 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 06:59:40 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-22 06:59:54 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 06:59:54 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 06:59:55 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 07:00:12 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-22 07:00:12 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-22 07:00:12 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-22 07:00:13 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 07:00:14 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 07:00:14 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 07:00:14 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 07:00:14 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 07:00:14 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 07:00:14 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 07:00:14 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 07:29:08 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-22 07:29:20 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 07:29:20 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 07:29:21 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 07:29:47 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-22 07:29:47 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-22 07:29:47 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-22 07:29:48 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 07:29:49 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 07:29:49 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 07:29:50 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 07:29:50 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 07:29:50 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 07:29:50 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 07:29:50 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 08:24:37 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 08:24:37 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 08:24:40 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 08:26:35 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: regulations
+2025-07-22 08:26:35 | INFO     | core.vector_store:_get_or_create_collection:52 - Retrieved existing collection: compliance_cases
+2025-07-22 08:26:35 | INFO     | core.vector_store:__init__:42 - Vector store initialized successfully
+2025-07-22 08:26:37 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 08:26:38 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 08:26:38 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 08:26:39 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 08:26:39 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 08:26:39 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 08:26:39 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 08:26:39 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 09:16:24 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-22 09:16:49 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 09:16:49 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 09:16:53 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 09:18:06 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: regulations
+2025-07-22 09:18:06 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: compliance_cases
+2025-07-22 09:18:06 | INFO     | core.vector_store:__init__:44 - Vector store initialized successfully
+2025-07-22 09:18:08 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 09:18:08 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 09:18:08 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 09:18:09 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 09:18:09 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 09:18:09 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 09:18:09 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 09:18:09 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 09:25:25 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 09:25:25 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 09:25:26 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 09:25:43 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: regulations
+2025-07-22 09:25:43 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: compliance_cases
+2025-07-22 09:25:43 | INFO     | core.vector_store:__init__:44 - Vector store initialized successfully
+2025-07-22 09:25:43 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 09:25:44 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 09:25:44 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 09:25:44 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 09:25:44 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 09:25:44 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 09:25:44 | INFO     | __main__:main:218 - Running in test mode...
+2025-07-22 09:25:44 | INFO     | __main__:test_workflow:63 - Testing ComplianceNavigator workflow...
+2025-07-22 09:25:44 | INFO     | __main__:test_workflow:75 - Running sample compliance analysis...
+2025-07-22 09:25:44 | INFO     | core.orchestrator:process_compliance_request:125 - Security validation passed for user: test_user
+2025-07-22 09:25:44 | INFO     | core.orchestrator:process_compliance_request:152 - Starting compliance workflow workflow_29031
+2025-07-22 09:25:44 | INFO     | core.orchestrator:_intake_node:197 - Workflow workflow_29031: Executing Intake Agent
+2025-07-22 09:25:44 | INFO     | agents.intake_agent:parse_startup_description:41 - IntakeAgent: Processing startup description with self-validation
+2025-07-22 09:25:46 | WARNING  | integrations.gemini_client:extract_structured_data:309 - Could not extract valid JSON from Gemini response, creating fallback structure
+2025-07-22 09:25:46 | WARNING  | agents.intake_agent:_extract_startup_info:109 - IntakeAgent: Empty or invalid data from Gemini, using fallback parsing
+2025-07-22 09:25:50 | INFO     | agents.intake_agent:parse_startup_description:51 - IntakeAgent: Low confidence (0.60), re-extracting with focused approach
+2025-07-22 09:25:52 | WARNING  | integrations.gemini_client:extract_structured_data:309 - Could not extract valid JSON from Gemini response, creating fallback structure
+2025-07-22 09:25:52 | WARNING  | agents.intake_agent:_focused_re_extraction:254 - Re-extraction failed, using enhanced fallback
+2025-07-22 09:25:56 | WARNING  | agents.intake_agent:parse_startup_description:60 - IntakeAgent: Re-extraction didn't improve, using best available
+2025-07-22 09:25:56 | INFO     | agents.intake_agent:parse_startup_description:66 - IntakeAgent: Final result - Industry: Fintech, Countries: ['Germany']
+2025-07-22 09:25:56 | INFO     | agents.intake_agent:generate_research_queries:357 - IntakeAgent: Generating research queries
+2025-07-22 09:26:04 | INFO     | agents.intake_agent:generate_research_queries:392 - IntakeAgent: Generated 4 research queries
+2025-07-22 09:26:04 | INFO     | core.orchestrator:_intake_node:208 - Intake Agent completed: Industry=Fintech, Queries=4
+2025-07-22 09:26:04 | INFO     | core.orchestrator:_scout_node:219 - Workflow workflow_29031: Executing Scout Agent
+2025-07-22 09:26:04 | INFO     | agents.scout_agent:research_regulations:134 - ScoutAgent: Starting universal regulatory research for ['Germany']
+2025-07-22 09:26:04 | INFO     | agents.web_discovery_agent:__init__:58 - WebDiscoveryAgent initialized with advanced discovery capabilities
+2025-07-22 09:26:04 | INFO     | agents.api_integration_agent:__init__:55 - APIIntegrationAgent initialized with dynamic API capabilities
+2025-07-22 09:26:04 | INFO     | agents.link_validation_agent:__init__:64 - LinkValidationAgent initialized with advanced validation capabilities
+2025-07-22 09:26:04 | INFO     | agents.scout_agent:research_regulations:231 - Processing 1 countries in parallel: ['Germany']
+2025-07-22 09:26:04 | INFO     | agents.scout_agent:research_regulations:275 - Regional Regulatory Agent not available, using standard country processing
+2025-07-22 09:26:04 | INFO     | agents.scout_agent:_process_single_country:805 - Processing regulations specifically for Germany
+2025-07-22 09:26:04 | INFO     | utils.cache:__init__:29 - Performance cache initialized with TTL 3600s
+2025-07-22 09:26:04 | INFO     | agents.scout_agent:_process_single_country:837 - Using optimized knowledge base for Germany
+2025-07-22 09:26:04 | INFO     | agents.scout_agent:_search_optimized_regulations:944 - Using optimized search for Germany in fintech
+2025-07-22 09:26:04 | INFO     | agents.scout_agent:_search_optimized_regulations:951 - Found optimized mapping: Germany matches Germany
+2025-07-22 09:26:04 | INFO     | agents.scout_agent:_search_optimized_regulations:970 - Found 3 optimized regulations for Germany
+2025-07-22 09:26:04 | INFO     | agents.scout_agent:research_regulations:295 - Found 3 regulations for Germany
+2025-07-22 09:26:04 | INFO     | agents.scout_agent:research_regulations:303 - ScoutAgent: Starting advanced agentic discovery
+2025-07-22 09:26:04 | INFO     | agents.scout_agent:research_regulations:307 - ScoutAgent: Starting web discovery
+2025-07-22 09:26:04 | INFO     | agents.web_discovery_agent:discover_regulatory_sources:115 - WebDiscoveryAgent: Starting agentic discovery for Germany
+2025-07-22 09:26:09 | INFO     | agents.web_discovery_agent:_parallel_web_discovery:222 - WebDiscoveryAgent: Discovered 16 unique URLs
+2025-07-22 09:26:16 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:16 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:26:16 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:16 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:26:16 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:16 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:26:17 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:17 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:17 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:26:17 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:17 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:26:17 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:17 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:17 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:26:18 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:18 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:26:19 | INFO     | agents.web_discovery_agent:discover_regulatory_sources:138 - WebDiscoveryAgent: Discovered 14 regulatory sources
+2025-07-22 09:26:19 | INFO     | agents.scout_agent:research_regulations:314 - ScoutAgent: Web discovery found 14 documents
+2025-07-22 09:26:19 | INFO     | agents.scout_agent:research_regulations:317 - ScoutAgent: Starting API integration
+2025-07-22 09:26:19 | INFO     | agents.api_integration_agent:discover_and_integrate_apis:145 - APIIntegrationAgent: Discovering APIs for Germany
+2025-07-22 09:26:19 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:19 | INFO     | agents.api_integration_agent:_test_apis:266 - API https://www.gesetze-im-internet.de is working
+2025-07-22 09:26:19 | INFO     | agents.api_integration_agent:_test_apis:266 - API https://www.bafin.de is working
+2025-07-22 09:26:21 | INFO     | agents.api_integration_agent:discover_and_integrate_apis:163 - APIIntegrationAgent: Retrieved 0 documents from APIs
+2025-07-22 09:26:21 | INFO     | agents.scout_agent:research_regulations:324 - ScoutAgent: API integration found 0 documents
+2025-07-22 09:26:21 | INFO     | agents.scout_agent:research_regulations:327 - ScoutAgent: Validating discovered links
+2025-07-22 09:26:21 | INFO     | agents.link_validation_agent:validate_regulatory_links:102 - LinkValidationAgent: Validating 17 regulatory links
+2025-07-22 09:26:21 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.gesetze-im-internet.de/zag/: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:21 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.gesetze-im-internet.de/kwg/: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:22 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:22 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+government+regulations+Fintech+payment+processing+site:.gov: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:22 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:22 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://policies.google.com/privacy?hl=de: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:28 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.gesetze-im-internet.de/bdsg_2018/: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:30 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:30 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+Fintech+licensing+payment+services+site:.gov: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:30 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:30 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+government+regulations+Fintech+payment+processing+government+authority: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:32 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+Fintech+licensing+payment+services+government+authority: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:32 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+government+regulations+Fintech+payment+processing+regulation+official: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:33 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+Fintech+licensing+payment+services+regulation+official: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:34 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:34 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+business+registration+requirements+payment+institution+regulation+official: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:34 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:34 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+business+registration+requirements+payment+institution+government+authority: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:34 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:35 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=BaFin+regulations+payment+processing+government+authority: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:37 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=BaFin+regulations+payment+processing+regulation+official: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:37 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+business+registration+requirements+payment+institution+site:.gov: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:38 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:26:38 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Bundesbank+regulations+payment+systems+government+authority: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:41 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Bundesbank+regulations+payment+systems+regulation+official: "RegulatoryDocument" object has no field "validation_metadata"
+2025-07-22 09:26:42 | INFO     | agents.link_validation_agent:validate_regulatory_links:130 - LinkValidationAgent: Validated 17 documents
+2025-07-22 09:26:42 | INFO     | agents.scout_agent:research_regulations:330 - ScoutAgent: Link validation completed
+2025-07-22 09:26:42 | INFO     | agents.scout_agent:research_regulations:337 - ScoutAgent: Ranking and deduplicating 17 total documents
+2025-07-22 09:26:42 | INFO     | agents.scout_modules.document_processor:deduplicate_documents:35 - Deduplicated 17 documents to 5 unique documents
+2025-07-22 09:26:42 | INFO     | agents.scout_agent:research_regulations:341 - ScoutAgent: Research completed with 5 final documents
+2025-07-22 09:26:42 | INFO     | core.orchestrator:_scout_node:236 - Scout Agent completed: Found 5 regulatory documents
+2025-07-22 09:26:42 | INFO     | core.orchestrator:_matcher_node:247 - Workflow workflow_29031: Executing Matcher Agent
+2025-07-22 09:26:42 | INFO     | agents.matcher_agent:analyze_compliance_gaps:63 - MatcherAgent: Analyzing compliance gaps for Fintech startup
+2025-07-22 09:30:55 | INFO     | agents.matcher_agent:analyze_compliance_gaps:95 - MatcherAgent: Found 21 compliance gaps, risk level: critical
+2025-07-22 09:30:56 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_3fc435c9b347
+2025-07-22 09:30:56 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_40d2b22bdf51
+2025-07-22 09:30:56 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_92f4378ad0c3
+2025-07-22 09:30:57 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_0f23c55257a9
+2025-07-22 09:30:57 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_6239262b1b68
+2025-07-22 09:30:57 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_eb36dc0beb2d
+2025-07-22 09:30:58 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_c560352d093c
+2025-07-22 09:30:58 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_285b4ee084a8
+2025-07-22 09:30:58 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_8bd5062c4ebb
+2025-07-22 09:30:58 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_74f46850df09
+2025-07-22 09:30:59 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_accca3100294
+2025-07-22 09:30:59 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_a961a7c4c9be
+2025-07-22 09:30:59 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_a0d0743f0d0f
+2025-07-22 09:31:00 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_bd5bbbeac60b
+2025-07-22 09:31:00 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_2d4b3606254a
+2025-07-22 09:31:00 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_60d19bc67271
+2025-07-22 09:31:00 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_e2e8748a0a8e
+2025-07-22 09:31:01 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_88aa0c9b8772
+2025-07-22 09:31:01 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_3d8e22051dee
+2025-07-22 09:31:01 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_7fda1a8a66d1
+2025-07-22 09:31:02 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_c33865345810
+2025-07-22 09:31:02 | INFO     | core.orchestrator:_matcher_node:260 - Matcher Agent completed: Found 21 gaps, risk level critical
+2025-07-22 09:31:02 | INFO     | core.orchestrator:_planner_node:271 - Workflow workflow_29031: Executing Planner Agent
+2025-07-22 09:31:02 | INFO     | agents.planner_agent:create_compliance_plan:62 - PlannerAgent: Creating compliance plan for Fintech startup
+2025-07-22 09:35:19 | INFO     | agents.planner_agent:create_compliance_plan:92 - PlannerAgent: Created plan with 24 action items, risk level: critical
+2025-07-22 09:35:19 | INFO     | core.orchestrator:_planner_node:284 - Planner Agent completed: Created plan with 24 action items
+2025-07-22 09:35:19 | INFO     | core.orchestrator:_monitoring_node:295 - Workflow workflow_29031: Executing Monitoring Agent
+2025-07-22 09:35:19 | INFO     | agents.monitoring_agent:setup_monitoring:62 - MonitoringAgent: Setting up monitoring for test_user
+2025-07-22 09:35:19 | INFO     | agents.monitoring_agent:setup_monitoring:92 - Monitoring scheduled for test_user with weekly frequency
+2025-07-22 09:35:19 | INFO     | agents.monitoring_agent:start_monitoring:445 - MonitoringAgent: Monitoring scheduler started
+2025-07-22 09:35:19 | INFO     | core.orchestrator:_monitoring_node:312 - Monitoring Agent completed: Set up monitoring for test_user
+2025-07-22 09:35:19 | INFO     | core.orchestrator:process_compliance_request:180 - Compliance workflow workflow_29031 completed successfully
+2025-07-22 09:35:19 | SUCCESS  | __main__:test_workflow:82 - ✅ Workflow test completed successfully!
+2025-07-22 09:35:19 | INFO     | __main__:test_workflow:83 - Found 21 compliance gaps
+2025-07-22 09:35:19 | INFO     | __main__:test_workflow:84 - Generated 24 action items
+2025-07-22 09:36:02 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 09:36:02 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 09:36:04 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 09:36:20 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: regulations
+2025-07-22 09:36:20 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: compliance_cases
+2025-07-22 09:36:20 | INFO     | core.vector_store:__init__:44 - Vector store initialized successfully
+2025-07-22 09:36:21 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 09:36:21 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 09:36:21 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 09:36:21 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 09:36:21 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 09:36:21 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 09:36:21 | INFO     | __main__:main:218 - Running in test mode...
+2025-07-22 09:36:21 | INFO     | __main__:test_workflow:63 - Testing ComplianceNavigator workflow...
+2025-07-22 09:36:21 | INFO     | __main__:test_workflow:75 - Running sample compliance analysis...
+2025-07-22 09:36:21 | INFO     | core.orchestrator:process_compliance_request:125 - Security validation passed for user: test_user
+2025-07-22 09:36:21 | INFO     | core.orchestrator:process_compliance_request:152 - Starting compliance workflow workflow_9610
+2025-07-22 09:36:21 | INFO     | core.orchestrator:_intake_node:197 - Workflow workflow_9610: Executing Intake Agent
+2025-07-22 09:36:21 | INFO     | agents.intake_agent:parse_startup_description:41 - IntakeAgent: Processing startup description with self-validation
+2025-07-22 09:36:24 | WARNING  | integrations.gemini_client:extract_structured_data:309 - Could not extract valid JSON from Gemini response, creating fallback structure
+2025-07-22 09:36:24 | WARNING  | agents.intake_agent:_extract_startup_info:109 - IntakeAgent: Empty or invalid data from Gemini, using fallback parsing
+2025-07-22 09:36:27 | INFO     | agents.intake_agent:parse_startup_description:51 - IntakeAgent: Low confidence (0.60), re-extracting with focused approach
+2025-07-22 09:36:29 | WARNING  | integrations.gemini_client:extract_structured_data:309 - Could not extract valid JSON from Gemini response, creating fallback structure
+2025-07-22 09:36:29 | WARNING  | agents.intake_agent:_focused_re_extraction:254 - Re-extraction failed, using enhanced fallback
+2025-07-22 09:36:33 | WARNING  | agents.intake_agent:parse_startup_description:60 - IntakeAgent: Re-extraction didn't improve, using best available
+2025-07-22 09:36:33 | INFO     | agents.intake_agent:parse_startup_description:66 - IntakeAgent: Final result - Industry: Fintech, Countries: ['Germany']
+2025-07-22 09:36:33 | INFO     | agents.intake_agent:generate_research_queries:357 - IntakeAgent: Generating research queries
+2025-07-22 09:36:43 | INFO     | agents.intake_agent:generate_research_queries:392 - IntakeAgent: Generated 4 research queries
+2025-07-22 09:36:43 | INFO     | core.orchestrator:_intake_node:208 - Intake Agent completed: Industry=Fintech, Queries=4
+2025-07-22 09:36:43 | INFO     | core.orchestrator:_scout_node:219 - Workflow workflow_9610: Executing Scout Agent
+2025-07-22 09:36:43 | INFO     | agents.scout_agent:research_regulations:144 - ScoutAgent: Starting universal regulatory research for ['Germany']
+2025-07-22 09:36:43 | INFO     | agents.web_discovery_agent:__init__:58 - WebDiscoveryAgent initialized with advanced discovery capabilities
+2025-07-22 09:36:43 | INFO     | agents.api_integration_agent:__init__:55 - APIIntegrationAgent initialized with dynamic API capabilities
+2025-07-22 09:36:43 | INFO     | agents.link_validation_agent:__init__:64 - LinkValidationAgent initialized with advanced validation capabilities
+2025-07-22 09:36:43 | INFO     | agents.scout_agent:research_regulations:241 - Processing 1 countries in parallel: ['Germany']
+2025-07-22 09:36:43 | INFO     | agents.scout_agent:research_regulations:285 - Regional Regulatory Agent not available, using standard country processing
+2025-07-22 09:36:43 | INFO     | agents.scout_agent:_process_single_country:815 - Processing regulations specifically for Germany
+2025-07-22 09:36:43 | INFO     | utils.cache:__init__:29 - Performance cache initialized with TTL 3600s
+2025-07-22 09:36:43 | INFO     | agents.scout_agent:_process_single_country:827 - Using cached regulations for Germany (3 docs)
+2025-07-22 09:36:43 | INFO     | agents.scout_agent:research_regulations:305 - Found 3 regulations for Germany
+2025-07-22 09:36:43 | INFO     | agents.scout_agent:research_regulations:313 - ScoutAgent: Starting advanced agentic discovery
+2025-07-22 09:36:43 | INFO     | agents.scout_agent:research_regulations:317 - ScoutAgent: Starting web discovery
+2025-07-22 09:36:43 | INFO     | agents.web_discovery_agent:discover_regulatory_sources:115 - WebDiscoveryAgent: Starting agentic discovery for Germany
+2025-07-22 09:36:45 | INFO     | agents.web_discovery_agent:_parallel_web_discovery:222 - WebDiscoveryAgent: Discovered 16 unique URLs
+2025-07-22 09:36:46 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:46 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:46 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:46 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:46 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:46 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:46 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:46 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:46 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:46 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:47 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:47 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:47 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:47 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:47 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:47 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:47 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:47 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:48 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:48 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:49 | INFO     | agents.web_discovery_agent:discover_regulatory_sources:138 - WebDiscoveryAgent: Discovered 14 regulatory sources
+2025-07-22 09:36:49 | INFO     | agents.scout_agent:research_regulations:324 - ScoutAgent: Web discovery found 14 documents
+2025-07-22 09:36:49 | INFO     | agents.scout_agent:research_regulations:327 - ScoutAgent: Starting API integration
+2025-07-22 09:36:49 | INFO     | agents.api_integration_agent:discover_and_integrate_apis:145 - APIIntegrationAgent: Discovering APIs for Germany
+2025-07-22 09:36:49 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:49 | INFO     | agents.api_integration_agent:_test_apis:266 - API https://www.gesetze-im-internet.de is working
+2025-07-22 09:36:49 | INFO     | agents.api_integration_agent:_test_apis:266 - API https://www.bafin.de is working
+2025-07-22 09:36:52 | INFO     | agents.api_integration_agent:discover_and_integrate_apis:163 - APIIntegrationAgent: Retrieved 0 documents from APIs
+2025-07-22 09:36:52 | INFO     | agents.scout_agent:research_regulations:334 - ScoutAgent: API integration found 0 documents
+2025-07-22 09:36:52 | INFO     | agents.scout_agent:research_regulations:337 - ScoutAgent: Validating discovered links
+2025-07-22 09:36:52 | INFO     | agents.link_validation_agent:validate_regulatory_links:102 - LinkValidationAgent: Validating 17 regulatory links
+2025-07-22 09:36:52 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.gesetze-im-internet.de/kwg/: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:52 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.gesetze-im-internet.de/zag/: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:52 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.gesetze-im-internet.de/bdsg_2018/: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:52 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:52 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+government+regulations+Fintech+payment+processing+site:.gov: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:52 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:52 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://policies.google.com/privacy?hl=de: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:54 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:54 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:54 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+government+regulations+Fintech+payment+processing+regulation+official: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:54 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:54 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+Fintech+licensing+payment+services+site:.gov: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:54 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:54 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:54 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+Fintech+licensing+payment+services+government+authority: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:54 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:54 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:54 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+Fintech+licensing+payment+services+regulation+official: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:54 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:54 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+government+regulations+Fintech+payment+processing+government+authority: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:56 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:56 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+business+registration+requirements+payment+institution+government+authority: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:56 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:56 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=BaFin+regulations+payment+processing+government+authority: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:56 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:56 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:56 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+business+registration+requirements+payment+institution+site:.gov: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:56 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:56 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Germany+business+registration+requirements+payment+institution+regulation+official: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:56 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:56 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:56 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=BaFin+regulations+payment+processing+regulation+official: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:57 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:57 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:36:57 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Bundesbank+regulations+payment+systems+regulation+official: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:57 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:36:57 | ERROR    | agents.link_validation_agent:_validate_single_document:164 - Error validating document https://www.google.com/search?q=Bundesbank+regulations+payment+systems+government+authority: 'NoneType' object has no attribute 'update'
+2025-07-22 09:36:58 | INFO     | agents.link_validation_agent:validate_regulatory_links:130 - LinkValidationAgent: Validated 17 documents
+2025-07-22 09:36:58 | INFO     | agents.scout_agent:research_regulations:340 - ScoutAgent: Link validation completed
+2025-07-22 09:36:58 | INFO     | agents.scout_agent:research_regulations:347 - ScoutAgent: Ranking and deduplicating 17 total documents
+2025-07-22 09:36:58 | INFO     | agents.scout_modules.document_processor:deduplicate_documents:35 - Deduplicated 17 documents to 5 unique documents
+2025-07-22 09:36:58 | INFO     | agents.scout_agent:research_regulations:351 - ScoutAgent: Research completed with 5 final documents
+2025-07-22 09:36:58 | INFO     | core.orchestrator:_scout_node:236 - Scout Agent completed: Found 5 regulatory documents
+2025-07-22 09:36:58 | INFO     | core.orchestrator:_matcher_node:247 - Workflow workflow_9610: Executing Matcher Agent
+2025-07-22 09:36:58 | INFO     | agents.matcher_agent:analyze_compliance_gaps:63 - MatcherAgent: Analyzing compliance gaps for Fintech startup
+2025-07-22 09:41:03 | INFO     | agents.matcher_agent:analyze_compliance_gaps:95 - MatcherAgent: Found 21 compliance gaps, risk level: critical
+2025-07-22 09:41:03 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_3100dca59f83
+2025-07-22 09:41:04 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_a0ae52f8aefd
+2025-07-22 09:41:04 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_2a7556a4eb75
+2025-07-22 09:41:04 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_82f0c25bd761
+2025-07-22 09:41:05 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_bc4f036d4c4e
+2025-07-22 09:41:05 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_eb36dc0beb2d
+2025-07-22 09:41:05 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_7742c52e0fad
+2025-07-22 09:41:05 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_4a98487c1d1f
+2025-07-22 09:41:06 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_e9065fe39905
+2025-07-22 09:41:06 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_2eb2b3c42535
+2025-07-22 09:41:06 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_ad3ca7d82ec6
+2025-07-22 09:41:06 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_417a80b4de46
+2025-07-22 09:41:07 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_0a8a156e79e5
+2025-07-22 09:41:07 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_ecd8ec12b73f
+2025-07-22 09:41:07 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_187fd593026a
+2025-07-22 09:41:08 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_419d02a06d12
+2025-07-22 09:41:08 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_8528e26cd24e
+2025-07-22 09:41:08 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_30dc3f81b756
+2025-07-22 09:41:09 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_bad6cee88971
+2025-07-22 09:41:09 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_9744aa2cfc0e
+2025-07-22 09:41:09 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_7577d2bcf11a
+2025-07-22 09:41:09 | INFO     | core.orchestrator:_matcher_node:260 - Matcher Agent completed: Found 21 gaps, risk level critical
+2025-07-22 09:41:09 | INFO     | core.orchestrator:_planner_node:271 - Workflow workflow_9610: Executing Planner Agent
+2025-07-22 09:41:09 | INFO     | agents.planner_agent:create_compliance_plan:62 - PlannerAgent: Creating compliance plan for Fintech startup
+2025-07-22 09:45:34 | INFO     | agents.planner_agent:create_compliance_plan:92 - PlannerAgent: Created plan with 24 action items, risk level: critical
+2025-07-22 09:45:34 | INFO     | core.orchestrator:_planner_node:284 - Planner Agent completed: Created plan with 24 action items
+2025-07-22 09:45:34 | INFO     | core.orchestrator:_monitoring_node:295 - Workflow workflow_9610: Executing Monitoring Agent
+2025-07-22 09:45:34 | INFO     | agents.monitoring_agent:setup_monitoring:62 - MonitoringAgent: Setting up monitoring for test_user
+2025-07-22 09:45:34 | INFO     | agents.monitoring_agent:setup_monitoring:92 - Monitoring scheduled for test_user with weekly frequency
+2025-07-22 09:45:34 | INFO     | agents.monitoring_agent:start_monitoring:445 - MonitoringAgent: Monitoring scheduler started
+2025-07-22 09:45:34 | INFO     | core.orchestrator:_monitoring_node:312 - Monitoring Agent completed: Set up monitoring for test_user
+2025-07-22 09:45:34 | INFO     | core.orchestrator:process_compliance_request:180 - Compliance workflow workflow_9610 completed successfully
+2025-07-22 09:45:34 | SUCCESS  | __main__:test_workflow:82 - ✅ Workflow test completed successfully!
+2025-07-22 09:45:34 | INFO     | __main__:test_workflow:83 - Found 21 compliance gaps
+2025-07-22 09:45:34 | INFO     | __main__:test_workflow:84 - Generated 24 action items
+2025-07-22 09:52:07 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 09:52:07 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 09:52:09 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 09:52:25 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: regulations
+2025-07-22 09:52:25 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: compliance_cases
+2025-07-22 09:52:25 | INFO     | core.vector_store:__init__:44 - Vector store initialized successfully
+2025-07-22 09:52:25 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 09:52:25 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 09:52:25 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 09:52:26 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 09:52:26 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 09:52:26 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 09:52:26 | INFO     | __main__:main:218 - Running in test mode...
+2025-07-22 09:52:26 | INFO     | __main__:test_workflow:63 - Testing ComplianceNavigator workflow...
+2025-07-22 09:52:26 | INFO     | __main__:test_workflow:75 - Running sample compliance analysis...
+2025-07-22 09:52:26 | INFO     | core.orchestrator:process_compliance_request:125 - Security validation passed for user: test_user
+2025-07-22 09:52:26 | INFO     | core.orchestrator:process_compliance_request:152 - Starting compliance workflow workflow_37968
+2025-07-22 09:52:26 | INFO     | core.orchestrator:_intake_node:197 - Workflow workflow_37968: Executing Intake Agent
+2025-07-22 09:52:26 | INFO     | agents.intake_agent:parse_startup_description:41 - IntakeAgent: Processing startup description with self-validation
+2025-07-22 09:52:28 | WARNING  | integrations.gemini_client:extract_structured_data:309 - Could not extract valid JSON from Gemini response, creating fallback structure
+2025-07-22 09:52:28 | WARNING  | agents.intake_agent:_extract_startup_info:109 - IntakeAgent: Empty or invalid data from Gemini, using fallback parsing
+2025-07-22 09:52:31 | INFO     | agents.intake_agent:parse_startup_description:51 - IntakeAgent: Low confidence (0.60), re-extracting with focused approach
+2025-07-22 09:52:32 | WARNING  | integrations.gemini_client:extract_structured_data:309 - Could not extract valid JSON from Gemini response, creating fallback structure
+2025-07-22 09:52:32 | WARNING  | agents.intake_agent:_focused_re_extraction:254 - Re-extraction failed, using enhanced fallback
+2025-07-22 09:52:35 | WARNING  | agents.intake_agent:parse_startup_description:60 - IntakeAgent: Re-extraction didn't improve, using best available
+2025-07-22 09:52:35 | INFO     | agents.intake_agent:parse_startup_description:66 - IntakeAgent: Final result - Industry: Fintech, Countries: ['Germany']
+2025-07-22 09:52:35 | INFO     | agents.intake_agent:generate_research_queries:357 - IntakeAgent: Generating research queries
+2025-07-22 09:52:44 | INFO     | agents.intake_agent:generate_research_queries:392 - IntakeAgent: Generated 4 research queries
+2025-07-22 09:52:44 | INFO     | core.orchestrator:_intake_node:208 - Intake Agent completed: Industry=Fintech, Queries=4
+2025-07-22 09:52:44 | INFO     | core.orchestrator:_scout_node:219 - Workflow workflow_37968: Executing Scout Agent
+2025-07-22 09:52:44 | INFO     | agents.scout_agent:research_regulations:144 - ScoutAgent: Starting universal regulatory research for ['Germany']
+2025-07-22 09:52:44 | INFO     | agents.web_discovery_agent:__init__:58 - WebDiscoveryAgent initialized with advanced discovery capabilities
+2025-07-22 09:52:44 | INFO     | agents.api_integration_agent:__init__:55 - APIIntegrationAgent initialized with dynamic API capabilities
+2025-07-22 09:52:44 | INFO     | agents.link_validation_agent:__init__:64 - LinkValidationAgent initialized with advanced validation capabilities
+2025-07-22 09:52:44 | INFO     | agents.scout_agent:research_regulations:241 - Processing 1 countries in parallel: ['Germany']
+2025-07-22 09:52:44 | INFO     | agents.scout_agent:research_regulations:285 - Regional Regulatory Agent not available, using standard country processing
+2025-07-22 09:52:44 | INFO     | agents.scout_agent:_process_single_country:815 - Processing regulations specifically for Germany
+2025-07-22 09:52:44 | INFO     | utils.cache:__init__:29 - Performance cache initialized with TTL 3600s
+2025-07-22 09:52:44 | INFO     | agents.scout_agent:_process_single_country:827 - Using cached regulations for Germany (3 docs)
+2025-07-22 09:52:44 | INFO     | agents.scout_agent:research_regulations:305 - Found 3 regulations for Germany
+2025-07-22 09:52:44 | INFO     | agents.scout_agent:research_regulations:313 - ScoutAgent: Starting advanced agentic discovery
+2025-07-22 09:52:44 | INFO     | agents.scout_agent:research_regulations:317 - ScoutAgent: Starting web discovery
+2025-07-22 09:52:44 | INFO     | agents.web_discovery_agent:discover_regulatory_sources:115 - WebDiscoveryAgent: Starting agentic discovery for Germany
+2025-07-22 09:52:48 | INFO     | agents.web_discovery_agent:_parallel_web_discovery:222 - WebDiscoveryAgent: Discovered 16 unique URLs
+2025-07-22 09:52:49 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:49 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:49 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:49 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:49 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:49 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:49 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:49 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:49 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:49 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:50 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:50 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:50 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:50 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:50 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:50 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:50 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:50 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:51 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:51 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:52 | INFO     | agents.web_discovery_agent:discover_regulatory_sources:138 - WebDiscoveryAgent: Discovered 14 regulatory sources
+2025-07-22 09:52:52 | INFO     | agents.scout_agent:research_regulations:324 - ScoutAgent: Web discovery found 14 documents
+2025-07-22 09:52:52 | INFO     | agents.scout_agent:research_regulations:327 - ScoutAgent: Starting API integration
+2025-07-22 09:52:52 | INFO     | agents.api_integration_agent:discover_and_integrate_apis:145 - APIIntegrationAgent: Discovering APIs for Germany
+2025-07-22 09:52:52 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:52 | INFO     | agents.api_integration_agent:_test_apis:266 - API https://www.gesetze-im-internet.de is working
+2025-07-22 09:52:52 | INFO     | agents.api_integration_agent:_test_apis:266 - API https://www.bafin.de is working
+2025-07-22 09:52:55 | INFO     | agents.api_integration_agent:discover_and_integrate_apis:163 - APIIntegrationAgent: Retrieved 0 documents from APIs
+2025-07-22 09:52:55 | INFO     | agents.scout_agent:research_regulations:334 - ScoutAgent: API integration found 0 documents
+2025-07-22 09:52:55 | INFO     | agents.scout_agent:research_regulations:337 - ScoutAgent: Validating discovered links
+2025-07-22 09:52:55 | INFO     | agents.link_validation_agent:validate_regulatory_links:102 - LinkValidationAgent: Validating 17 regulatory links
+2025-07-22 09:52:55 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:56 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:57 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:57 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:57 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:57 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:57 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:57 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:57 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:57 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:59 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:59 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:59 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:59 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:52:59 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:59 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:52:59 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:53:00 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:53:00 | INFO     | integrations.gemini_client:generate_response:114 - Using cached response due to rate limiting
+2025-07-22 09:53:00 | WARNING  | integrations.gemini_client:generate_response:104 - Gemini API rate limit exceeded: {'reason': 'burst_limit_exceeded', 'retry_after': 45, 'tokens_available': 0}
+2025-07-22 09:53:01 | INFO     | agents.link_validation_agent:validate_regulatory_links:130 - LinkValidationAgent: Validated 17 documents
+2025-07-22 09:53:01 | INFO     | agents.scout_agent:research_regulations:340 - ScoutAgent: Link validation completed
+2025-07-22 09:53:01 | INFO     | agents.scout_agent:research_regulations:347 - ScoutAgent: Ranking and deduplicating 17 total documents
+2025-07-22 09:53:01 | INFO     | agents.scout_modules.document_processor:deduplicate_documents:35 - Deduplicated 17 documents to 5 unique documents
+2025-07-22 09:53:01 | INFO     | agents.scout_agent:research_regulations:351 - ScoutAgent: Research completed with 5 final documents
+2025-07-22 09:53:01 | INFO     | core.orchestrator:_scout_node:234 - Scout Agent returned 5 documents
+2025-07-22 09:53:01 | INFO     | core.orchestrator:_scout_node:236 - First document type: <class 'agents.scout_agent.RegulatoryDocument'>
+2025-07-22 09:53:01 | INFO     | core.orchestrator:_scout_node:237 - First document keys: dict_keys(['title', 'content', 'source', 'country', 'regulation_type', 'url', 'authority', 'regulation_id', 'last_updated', 'relevance_score', 'citation_format', 'validation_metadata', 'discovery_method', 'priority_weight', 'source_confidence', 'user_provided', 'processing_notes', 'extraction_quality', 'key_requirements'])
+2025-07-22 09:53:01 | INFO     | core.orchestrator:_scout_node:250 - Scout Agent completed: Found 5 regulatory documents
+2025-07-22 09:53:01 | INFO     | core.orchestrator:_matcher_node:261 - Workflow workflow_37968: Executing Matcher Agent
+2025-07-22 09:53:01 | INFO     | core.orchestrator:_matcher_node:265 - Matcher node - startup_info: True
+2025-07-22 09:53:01 | INFO     | core.orchestrator:_matcher_node:266 - Matcher node - regulatory_documents: True
+2025-07-22 09:53:01 | INFO     | core.orchestrator:_matcher_node:268 - Matcher node - regulatory_documents count: 5
+2025-07-22 09:53:01 | INFO     | agents.matcher_agent:analyze_compliance_gaps:63 - MatcherAgent: Analyzing compliance gaps for Fintech startup
+2025-07-22 09:55:32 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-22 09:55:35 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 09:55:35 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 09:55:36 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 09:55:53 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: regulations
+2025-07-22 09:55:53 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: compliance_cases
+2025-07-22 09:55:53 | INFO     | core.vector_store:__init__:44 - Vector store initialized successfully
+2025-07-22 09:55:54 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 09:55:54 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 09:55:54 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 09:55:54 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 09:55:54 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 09:55:54 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 09:55:54 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 09:55:54 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 09:57:12 | INFO     | agents.matcher_agent:analyze_compliance_gaps:95 - MatcherAgent: Found 21 compliance gaps, risk level: critical
+2025-07-22 09:57:13 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_d644ecc4e74e
+2025-07-22 09:57:13 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_5d402ab54241
+2025-07-22 09:57:13 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_2eef808108e6
+2025-07-22 09:57:14 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_746bdc5b1f60
+2025-07-22 09:57:14 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_44d3b72f8a33
+2025-07-22 09:57:14 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_398e379d1ffd
+2025-07-22 09:57:15 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_c560352d093c
+2025-07-22 09:57:15 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_85117d3832f9
+2025-07-22 09:57:15 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_b57f718a572c
+2025-07-22 09:57:15 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_002c96ef6d25
+2025-07-22 09:57:16 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_84bfa7a398c6
+2025-07-22 09:57:16 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_40b25dfee60b
+2025-07-22 09:57:16 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_ba3905bb4080
+2025-07-22 09:57:17 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_7ac3b3ff8a83
+2025-07-22 09:57:17 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_c8cdb2bba9b3
+2025-07-22 09:57:17 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_f841dc76a160
+2025-07-22 09:57:18 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_9d716a0b9724
+2025-07-22 09:57:18 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_30dc3f81b756
+2025-07-22 09:57:18 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_7d41844105ad
+2025-07-22 09:57:18 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_9744aa2cfc0e
+2025-07-22 09:57:18 | INFO     | core.vector_store:add_compliance_case:202 - Added compliance case: case_40caa8592702
+2025-07-22 09:57:18 | INFO     | core.orchestrator:_matcher_node:299 - Matcher Agent completed: Found 21 gaps, risk level critical
+2025-07-22 09:57:18 | INFO     | core.orchestrator:_planner_node:310 - Workflow workflow_37968: Executing Planner Agent
+2025-07-22 09:57:18 | INFO     | agents.planner_agent:create_compliance_plan:62 - PlannerAgent: Creating compliance plan for Fintech startup
+2025-07-22 10:01:29 | INFO     | agents.planner_agent:create_compliance_plan:92 - PlannerAgent: Created plan with 24 action items, risk level: critical
+2025-07-22 10:01:29 | INFO     | core.orchestrator:_planner_node:341 - Planner Agent completed: Created plan with 24 action items
+2025-07-22 10:01:29 | INFO     | core.orchestrator:_monitoring_node:352 - Workflow workflow_37968: Executing Monitoring Agent
+2025-07-22 10:01:29 | INFO     | agents.monitoring_agent:setup_monitoring:62 - MonitoringAgent: Setting up monitoring for test_user
+2025-07-22 10:01:29 | INFO     | agents.monitoring_agent:setup_monitoring:92 - Monitoring scheduled for test_user with weekly frequency
+2025-07-22 10:01:29 | INFO     | agents.monitoring_agent:start_monitoring:445 - MonitoringAgent: Monitoring scheduler started
+2025-07-22 10:01:29 | INFO     | core.orchestrator:_monitoring_node:369 - Monitoring Agent completed: Set up monitoring for test_user
+2025-07-22 10:01:29 | INFO     | core.orchestrator:process_compliance_request:180 - Compliance workflow workflow_37968 completed successfully
+2025-07-22 10:01:29 | SUCCESS  | __main__:test_workflow:82 - ✅ Workflow test completed successfully!
+2025-07-22 10:01:29 | INFO     | __main__:test_workflow:83 - Found 21 compliance gaps
+2025-07-22 10:01:29 | INFO     | __main__:test_workflow:84 - Generated 24 action items
+2025-07-22 10:06:54 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 10:06:54 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 10:06:56 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 10:07:11 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: regulations
+2025-07-22 10:07:11 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: compliance_cases
+2025-07-22 10:07:11 | INFO     | core.vector_store:__init__:44 - Vector store initialized successfully
+2025-07-22 10:07:13 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 10:07:13 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 10:07:13 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 10:07:13 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 10:07:13 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 10:07:13 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 10:07:13 | INFO     | __main__:main:218 - Running in test mode...
+2025-07-22 10:07:13 | INFO     | __main__:test_workflow:63 - Testing ComplianceNavigator workflow...
+2025-07-22 10:07:13 | INFO     | __main__:test_workflow:75 - Running sample compliance analysis...
+2025-07-22 10:07:13 | INFO     | core.orchestrator:process_compliance_request:125 - Security validation passed for user: test_user
+2025-07-22 10:07:13 | INFO     | core.orchestrator:process_compliance_request:152 - Starting compliance workflow workflow_67922
+2025-07-22 10:07:13 | INFO     | core.orchestrator:_intake_node:197 - Workflow workflow_67922: Executing Intake Agent
+2025-07-22 10:07:13 | INFO     | agents.intake_agent:parse_startup_description:41 - IntakeAgent: Processing startup description with self-validation
+2025-07-22 10:12:45 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-22 10:13:59 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 10:13:59 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 10:14:01 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 10:14:19 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: regulations
+2025-07-22 10:14:19 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: compliance_cases
+2025-07-22 10:14:19 | INFO     | core.vector_store:__init__:44 - Vector store initialized successfully
+2025-07-22 10:14:20 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 10:14:21 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 10:14:21 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 10:14:21 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 10:14:21 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 10:14:21 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 10:14:21 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 10:14:21 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 10:20:30 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-22 10:26:28 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 10:26:28 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 10:26:29 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 10:26:46 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: regulations
+2025-07-22 10:26:46 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: compliance_cases
+2025-07-22 10:26:46 | INFO     | core.vector_store:__init__:44 - Vector store initialized successfully
+2025-07-22 10:26:46 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 10:26:47 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 10:26:47 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 10:26:47 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 10:26:47 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 10:26:47 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 10:26:47 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 10:26:47 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 10:31:47 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-22 10:31:51 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 10:31:51 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 10:31:52 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 10:32:07 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: regulations
+2025-07-22 10:32:07 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: compliance_cases
+2025-07-22 10:32:07 | INFO     | core.vector_store:__init__:44 - Vector store initialized successfully
+2025-07-22 10:32:07 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 10:32:08 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 10:32:08 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 10:32:08 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 10:32:08 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 10:32:08 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 10:32:08 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 10:32:08 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 10:34:13 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-22 10:34:16 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 10:34:16 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 10:34:17 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 10:34:32 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: regulations
+2025-07-22 10:34:32 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: compliance_cases
+2025-07-22 10:34:32 | INFO     | core.vector_store:__init__:44 - Vector store initialized successfully
+2025-07-22 10:34:33 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 10:34:33 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 10:34:33 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 10:34:33 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 10:34:33 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 10:34:33 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 10:34:33 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 10:34:33 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
+2025-07-22 10:53:24 | INFO     | __main__:run_streamlit_app:116 - Application stopped by user
+2025-07-22 10:53:27 | INFO     | __main__:setup_logging:36 - ComplianceNavigator logging configured
+2025-07-22 10:53:27 | INFO     | __main__:main:205 - 🏛️  Starting ComplianceNavigator
+2025-07-22 10:53:30 | INFO     | integrations.gemini_client:__init__:19 - Gemini client initialized successfully
+2025-07-22 10:53:49 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: regulations
+2025-07-22 10:53:49 | INFO     | core.vector_store:_get_or_create_collection:54 - Retrieved existing collection: compliance_cases
+2025-07-22 10:53:49 | INFO     | core.vector_store:__init__:44 - Vector store initialized successfully
+2025-07-22 10:53:50 | INFO     | agents.intake_agent:__init__:29 - IntakeAgent initialized
+2025-07-22 10:53:50 | INFO     | agents.matcher_agent:__init__:46 - MatcherAgent initialized
+2025-07-22 10:53:50 | INFO     | agents.planner_agent:__init__:45 - PlannerAgent initialized
+2025-07-22 10:53:50 | INFO     | agents.monitoring_agent:__init__:46 - MonitoringAgent initialized
+2025-07-22 10:53:50 | INFO     | core.orchestrator:__init__:61 - ComplianceOrchestrator initialized
+2025-07-22 10:53:50 | INFO     | __main__:check_dependencies:51 - All dependencies available
+2025-07-22 10:53:50 | INFO     | __main__:run_streamlit_app:97 - Starting Streamlit application...
+2025-07-22 10:53:50 | INFO     | __main__:run_streamlit_app:112 - Launching Streamlit on port 8501
