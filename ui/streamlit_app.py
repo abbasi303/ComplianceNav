@@ -618,22 +618,6 @@ def main():
         except Exception as e:
             st.warning(f"Could not load vector store stats: {e}")
         
-        # Results export info
-        st.header("Results Export")
-        results_dir = Path("results")
-        if results_dir.exists() and any(results_dir.iterdir()):
-            file_count = len(list(results_dir.glob("*.json")))
-            st.metric("Saved Analysis Reports", file_count)
-            
-            with st.expander("How to share results", expanded=False):
-                st.write("**Easy Sharing:**")
-                st.write("1. Run an analysis → Files auto-export to `results/` folder")
-                st.write("2. Find files in your project's `results/` directory")
-                st.write("3. Share the `.txt` summary for quick overview")
-                st.write("4. Share the `.json` file for complete technical details")
-                st.caption("All exports include timestamps and workflow IDs")
-        else:
-            st.write("Run an analysis to generate exportable results")
         
         st.header("Settings")
         
